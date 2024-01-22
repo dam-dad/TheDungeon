@@ -9,9 +9,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 public class Player extends Entity<Rectangle> {
-	
-	private static final long ANIMATION_SPEED = 125000; 
-	
+
+	private static final long ANIMATION_SPEED = 125000;
+
 	@SuppressWarnings("serial")
 	private final Map<Direction, Animation> idle = new HashMap<>() {{
 		put(Direction.NORTH, new Animation("/images/SpriteUp.png"));
@@ -19,7 +19,7 @@ public class Player extends Entity<Rectangle> {
 		put(Direction.EAST, new Animation("/images/SpriteLeft.png"));
 		put(Direction.WEST, new Animation("/images/SpriteRight.png"));
 	}};
-	
+
 	@SuppressWarnings("serial")
 	private final Map<Direction, Animation> walk = new HashMap<>() {{
 		put(Direction.NORTH, new Animation(ANIMATION_SPEED, "/images/SpriteWalkUp1.png", "/images/SpriteUp.png", "/images/SpriteWalkUp2.png", "/images/SpriteUp.png"));
@@ -37,7 +37,7 @@ public class Player extends Entity<Rectangle> {
 
 	public Player(double posX, double posY, double speed) {
 		super();
-		
+
 		// variables of movement speed
 		this.xSpeed = speed;
 		this.ySpeed = speed;
@@ -57,7 +57,7 @@ public class Player extends Entity<Rectangle> {
 	public void move(Direction direction) {
 		this.actions.add(new Action(direction));
 	}
-	
+
 	// methods for movement
 	private void moveLeft() {
 		isWalking = true;
@@ -82,29 +82,34 @@ public class Player extends Entity<Rectangle> {
 		direction = Direction.SOUTH;
 		posY += ySpeed;
 	}
-	
+
 	private void idle() {
 		isWalking = false;
 	}
-	
+
 	public void render(GraphicsContext gc) {
-				
-		gc.drawImage(animation.getCurrentFrame(), posX, posY, width, height);
+		if (animation != null) {
+			gc.drawImage(animation.getCurrentFrame(), posX, posY, width, height);
+		} else {
+			// Manejar el caso en que la animación es null (puedes mostrar una imagen predeterminada o realizar alguna acción apropiada)
+			System.err.println("La animación es null para la dirección: " + direction);
+		}
+	}
 //		Rectangle shape = getCollisionShape();
 //		gc.setFill(Color.YELLOW);
 //		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
-		
-	}
-	
+
+
+
 	private void apply(Action action) {
 		switch (action.getDirection()) {
 		case SOUTH: moveDown(); break;
 		case NORTH: moveUp(); break;
 		case EAST: moveLeft(); break;
 		case WEST: moveRight(); break;
-		}		
+		}
 	}
-	
+
 	public void update(long timeDifference) {
 		if (actions.isEmpty()) {
 			idle();
@@ -117,7 +122,7 @@ public class Player extends Entity<Rectangle> {
 		if (!isWalking && animation != idle.get(direction)) {
 			animation = idle.get(direction);
 			animation.reset();
-		} 
+		}
 		if (isWalking && animation != walk.get(direction)) {
 			animation = walk.get(direction);
 			animation.reset();
@@ -138,13 +143,13 @@ public class Player extends Entity<Rectangle> {
 		}
 		return new Rectangle(shapeX, shapeY, width, height / 2);
 	}
-	
+
 	@Override
 	public boolean checkCollision(Entity<? extends Shape> entity) {
-		
+
 		return super.checkCollision(entity);
 	}
-	
+
 	@Override
 	public Rectangle getCollisionShape() {
 		double shapeX = posX;

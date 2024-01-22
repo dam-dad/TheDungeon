@@ -5,101 +5,116 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import dad.game.ui.Enemy;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.shape.Shape;
 
 
 /**
- *  Clase que crea un objeto gameloop que realiza acciones cada frame, entre ellas recibir el input, comprobar colisiones 
- *  y pintar el mapa del juego y las entidades
+ * Clase que crea un objeto gameloop que realiza acciones cada frame, entre ellas recibir el input, comprobar colisiones
+ * y pintar el mapa del juego y las entidades
  */
 public class Game extends AnimationTimer {
 
-	private long time;
-	private long timeDifference;
+    private long time;
+    private long timeDifference;
 
-	private GraphicsContext graphicsContext;
+    private GraphicsContext graphicsContext;
 
-	private Player player;
-	private List<Entity<? extends Shape>> entities = new ArrayList<>();
+    private Player player;
+    private List<Entity<? extends Shape>> entities = new ArrayList<>();
 
-	private Set<KeyCode> input = new HashSet<>();
+    private Set<KeyCode> input = new HashSet<>();
 
-	public Game(Canvas canvas) {
+    public Game(Canvas canvas) {
 
-		this.graphicsContext = canvas.getGraphicsContext2D();
-		
-		canvas.setOnKeyPressed(e -> this.input.add(e.getCode()));
-		canvas.setOnKeyReleased(e -> this.input.remove(e.getCode()));
-		canvas.setFocusTraversable(true);
-		canvas.requestFocus();
-		
-		init();
-		
-	}
-	
-	public void init() {
-		this.player = new Player(64, 64, 2);
-		this.entities.addAll(Tile.loadTile(Tile.map));		
-	}
+        this.graphicsContext = canvas.getGraphicsContext2D();
 
-	@Override
-	public void start() {
-		this.time = System.nanoTime();
-		super.start();
-	}
+        canvas.setOnKeyPressed(e -> this.input.add(e.getCode()));
+        canvas.setOnKeyReleased(e -> this.input.remove(e.getCode()));
+        canvas.setFocusTraversable(true);
+        canvas.requestFocus();
 
-	// game loop
-	public void handle(long currentNanoTime) {
-		timeDifference = (currentNanoTime - time) / 1000;
+        init();
 
-		processInput();
-		checkCollisions();
-		update();
-		render();
+    }
 
-		time = currentNanoTime;
-	}
+    public void init() {
+        this.player = new Player(64, 64, 2);
+        this.entities.addAll(Tile.loadTile(Tile.map));
 
-	private void update() {
-		
-		player.update(timeDifference);
-		
-	}
 
-	// procesamos las entradas
-	private void processInput() {
-		if (input.contains(KeyCode.W) || input.contains(KeyCode.UP)) {
-			player.move(Direction.NORTH);
-		}
-		if (input.contains(KeyCode.S) || input.contains(KeyCode.DOWN)) {
-			player.move(Direction.SOUTH);
-		}
-		if (input.contains(KeyCode.A) || input.contains(KeyCode.LEFT)) {
-			player.move(Direction.EAST);
-		}
-		if (input.contains(KeyCode.D) || input.contains(KeyCode.RIGHT)) {
-			player.move(Direction.WEST);
-		}
-	}
+        // Crear un enemigo (Comentar esta linea para desactivar el enemigo)
+        Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
+        Enemy enemy = new Enemy(200.0, 200.0, 60, player);
+        this.entities.add(enemy);
+        //Comentar hasta aquí
 
-	// chequeamos colisions
-	private void checkCollisions() {
+    }
 
-		entities.stream()
-			.filter(player::checkCollision)
-			.findAny()
-			.ifPresent(entity -> player.stop());
+    @Override
+    public void start() {
+        this.time = System.nanoTime();
+        super.start();
+    }
 
-	}
+    // game loop
+    public void handle(long currentNanoTime) {
+        timeDifference = (currentNanoTime - time) / 1000;
 
-	// pinta todo
-	private void render() {
-		entities.forEach(entity -> entity.render(graphicsContext));
-		player.render(graphicsContext);
-	}
+        processInput();
+        checkCollisions();
+        update();
+        render();
+
+        time = currentNanoTime;
+    }
+
+    private void update() {
+
+        player.update(timeDifference);
+        entities.forEach(entity -> {
+            if (entity instanceof Enemy) {
+                ((Enemy) entity).update(timeDifference);
+            }
+        });
+
+    }
+
+    // procesamos las entradas
+    private void processInput() {
+        if (input.contains(KeyCode.W) || input.contains(KeyCode.UP)) {
+            player.move(Direction.NORTH);
+        }
+        if (input.contains(KeyCode.S) || input.contains(KeyCode.DOWN)) {
+            player.move(Direction.SOUTH);
+        }
+        if (input.contains(KeyCode.A) || input.contains(KeyCode.LEFT)) {
+            player.move(Direction.EAST);
+        }
+        if (input.contains(KeyCode.D) || input.contains(KeyCode.RIGHT)) {
+            player.move(Direction.WEST);
+        }
+    }
+
+    // chequeamos colisions
+    private void checkCollisions() {
+
+        entities.stream()
+                .filter(player::checkCollision)
+                .findAny()
+                .ifPresent(entity -> player.stop());
+
+    }
+
+    // pinta todo
+    private void render() {
+        entities.forEach(entity -> entity.render(graphicsContext));
+        player.render(graphicsContext);
+    }
 
 }

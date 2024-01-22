@@ -25,6 +25,29 @@ public abstract class Entity<T extends Shape> {
 	 * @param entidad para comprobar colision
 	 * @return
 	 */
+
+
+	protected Direction direction;
+
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+	public double getPosX() {
+		return posX;
+	}
+
+	public double getPosY() {
+		return posY;
+	}
+
+
+
+
+
 	public boolean checkCollision(Entity<? extends Shape> entity) {
 		return (getCollisionShape() != null && entity.getCollisionShape() != null && getCollisionShape().intersects(entity.getCollisionShape().getLayoutBounds()));
 	}

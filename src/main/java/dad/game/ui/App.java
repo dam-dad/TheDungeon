@@ -1,5 +1,6 @@
 package dad.game.ui;
 
+
 import dad.game.music.MusicThread;
 import javafx.application.Application;
 import javafx.scene.ImageCursor;
