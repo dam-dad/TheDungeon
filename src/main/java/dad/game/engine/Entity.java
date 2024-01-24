@@ -8,7 +8,7 @@ import javafx.scene.shape.Shape;
  * Clase que crea una entidad a partir de la cuál heredaremos para crear jugadores, npc o tiles dentro del juego.
  * Tiene propiedades que tendrán en común estos objetos como tamaño, imagen y los métodos como mostrarlos en el juego y actualizarlos.
  */
-public abstract class Entity<T extends Shape> {
+public abstract class Entity {
 	
 	public static final double SCALE = 0.43;
 	
@@ -18,7 +18,7 @@ public abstract class Entity<T extends Shape> {
 	
 	public abstract void render(GraphicsContext gc);
 	public abstract void update(long timeDifference);
-	public abstract T getCollisionShape();
+	public abstract Shape getCollisionShape();
 	
 	/**
 	 * comprobar las colisiones usando la interseccion
@@ -48,7 +48,7 @@ public abstract class Entity<T extends Shape> {
 
 
 
-	public boolean checkCollision(Entity<? extends Shape> entity) {
+	public boolean checkCollision(Entity entity) {
 		return (getCollisionShape() != null && entity.getCollisionShape() != null && getCollisionShape().intersects(entity.getCollisionShape().getLayoutBounds()));
 	}
 	

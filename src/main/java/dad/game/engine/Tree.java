@@ -8,7 +8,7 @@ import javafx.scene.shape.Rectangle;
 /**
  * Clase que genera una entidad de arbol
  */
-public class Tree extends CollidableEntity {
+public class Tree extends StaticEntity {
 
 	//TODO cambiar la textura sin que crashee el programa
 	public Tree(double x, double y) {

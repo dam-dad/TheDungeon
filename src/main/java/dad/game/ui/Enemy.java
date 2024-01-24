@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class Enemy extends Entity<Rectangle> {
+public class Enemy extends Entity {
 
     private double speed;
     private Player player;
