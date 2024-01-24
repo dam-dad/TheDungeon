@@ -2,6 +2,8 @@ package dad.game.engine;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * Clase que genera una entidad de arbol
@@ -16,6 +18,17 @@ public class Tree extends CollidableEntity {
 	@Override
 	public void render(GraphicsContext gc) {
 		super.render(gc);
+
+
+
+		//Comando para Checkear colisiones
+		/*Rectangle shape = getCollisionShape();
+		gc.setFill(Color.YELLOW);
+		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+*/
+
+
+
 //		Rectangle shape = (Rectangle) getCollisionShape();
 //		gc.setFill(Color.OLIVEDRAB);
 //		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());

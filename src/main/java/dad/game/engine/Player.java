@@ -102,11 +102,24 @@ public class Player extends Entity<Rectangle> {
 
 
 	private void apply(Action action) {
-		switch (action.getDirection()) {
-		case SOUTH: moveDown(); break;
-		case NORTH: moveUp(); break;
-		case EAST: moveLeft(); break;
-		case WEST: moveRight(); break;
+		if (action != null && action.getDirection() != null) {
+			switch (action.getDirection()) {
+				case SOUTH:
+					moveDown();
+					break;
+				case NORTH:
+					moveUp();
+					break;
+				case EAST:
+					moveLeft();
+					break;
+				case WEST:
+					moveRight();
+					break;
+			}
+		} else {
+			// Manejar el caso en que la dirección es null
+			System.err.println("La dirección de la acción es null.");
 		}
 	}
 
@@ -130,7 +143,7 @@ public class Player extends Entity<Rectangle> {
 		animation.update(timeDifference);
 	}
 
-	private Rectangle getCollisionShape(Action action) {
+	/*private Rectangle getCollisionShape(Action action) {
 		double shapeX = posX;
 		double shapeY = posY + height / 2;
 		if (action != null) {
@@ -142,7 +155,7 @@ public class Player extends Entity<Rectangle> {
 			}
 		}
 		return new Rectangle(shapeX, shapeY, width, height / 2);
-	}
+	}*/
 
 	@Override
 	public boolean checkCollision(Entity<? extends Shape> entity) {
@@ -154,12 +167,14 @@ public class Player extends Entity<Rectangle> {
 	public Rectangle getCollisionShape() {
 		double shapeX = posX;
 		double shapeY = posY + height / 2;
-		for (Action current : actions) {
-			switch (current.getDirection()) {
-			case SOUTH: shapeY += ySpeed; break;
-			case NORTH: shapeY -= ySpeed; break;
-			case EAST: shapeX -= xSpeed; break;
-			case WEST: shapeX += xSpeed; break;
+
+		// Verifica si la dirección es null antes de realizar el cálculo
+		if (direction != null) {
+			switch (direction) {
+				case SOUTH: shapeY += ySpeed; break;
+				case NORTH: shapeY -= ySpeed; break;
+				case EAST: shapeX -= xSpeed; break;
+				case WEST: shapeX += xSpeed; break;
 			}
 		}
 		return new Rectangle(shapeX, shapeY, width, height / 2);

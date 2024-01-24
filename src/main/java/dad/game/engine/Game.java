@@ -26,13 +26,17 @@ public class Game extends AnimationTimer {
     private GraphicsContext graphicsContext;
 
     private Player player;
-    private List<Entity<? extends Shape>> entities = new ArrayList<>();
+    private List<Entity> entities;
 
     private Set<KeyCode> input = new HashSet<>();
+    private boolean nextMap1 = false;
+    private boolean nextMap2 = false;
+  //  private List<Entity> objects;
 
     public Game(Canvas canvas) {
 
         this.graphicsContext = canvas.getGraphicsContext2D();
+        this.entities = Tile.loadTile(Tile.tileMap1);
 
         canvas.setOnKeyPressed(e -> this.input.add(e.getCode()));
         canvas.setOnKeyReleased(e -> this.input.remove(e.getCode()));
@@ -45,13 +49,15 @@ public class Game extends AnimationTimer {
 
     public void init() {
         this.player = new Player(64, 64, 2);
-        this.entities.addAll(Tile.loadTile(Tile.map));
+       // this.entities.addAll(Tile.loadTile(Tile.tileMap1));
+        this.entities = Tile.loadTile(Tile.tileMap1);
 
 
         // Crear un enemigo (Comentar esta linea para desactivar el enemigo)
+        /*
         Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
         Enemy enemy = new Enemy(200.0, 200.0, 60, player);
-        this.entities.add(enemy);
+        this.entities.add(enemy);*/
         //Comentar hasta aquí
 
     }
@@ -75,14 +81,28 @@ public class Game extends AnimationTimer {
     }
 
     private void update() {
-
         player.update(timeDifference);
+
+        if (nextMap1) {
+            System.out.println("Changing to Map 2...");
+            this.entities = Tile.loadTile(Tile.tileMap2);
+            player.posY = (Tile.tileMap2.length) * Tile.getTileLength()
+                    - (Tile.getTileLength() / 2 + Tile.getTileLength());
+            nextMap1 = false;
+            System.out.println("Changed to Map 2");
+        } else if (nextMap2) {
+            System.out.println("Changing to Map 1...");
+            this.entities = Tile.loadTile(Tile.tileMap1);
+            player.posY = 0;
+            nextMap2 = false;
+            System.out.println("Changed to Map 1");
+        }
+
         entities.forEach(entity -> {
             if (entity instanceof Enemy) {
                 ((Enemy) entity).update(timeDifference);
             }
         });
-
     }
 
     // procesamos las entradas
@@ -103,12 +123,17 @@ public class Game extends AnimationTimer {
 
     // chequeamos colisions
     private void checkCollisions() {
-
-        entities.stream()
-                .filter(player::checkCollision)
-                .findAny()
-                .ifPresent(entity -> player.stop());
-
+        for (Entity entity : entities) {
+            if (player.checkCollision(entity)) {
+                System.out.println("Collision detected with: " + entity.getClass().getSimpleName());
+                if (entity instanceof Map1Transition) {
+                    nextMap1 = true;
+                } else if (entity instanceof Map2Transition) {
+                    nextMap2 = true;
+                }
+                player.move(null);
+            }
+        }
     }
 
     // pinta todo

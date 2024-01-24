@@ -31,6 +31,10 @@ public class Enemy extends Entity<Rectangle> {
         this.animations = createAnimations();
     }
 
+    public Enemy(double initialPosX, double initialPosY) {
+        super();
+    }
+
     private Map<Direction, Animation> createAnimations() {
         Map<Direction, Animation> enemyAnimations = new HashMap<>();
         // Define las animaciones para cada dirección del enemigo

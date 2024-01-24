@@ -1,5 +1,7 @@
 package dad.game.engine;
 
+import dad.game.ui.Enemy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,19 +10,32 @@ import java.util.List;
  *   del juego segun el numero de cada posicion del tilemap
  */
 public class Tile {
-	
-	public static String map = """
-		######  #######
-		# O          O#
-		#       O     #
-		#       #     #
-		#ooo          #
-		#ooo  O  O    #
-		#       ## oo##
-		#   O    #  oo#
-		#          ooo#
-		###############
-		""";
+
+	public static int[][] tileMap1 = {
+			{ 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2 },
+			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2 },
+			{ 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 1, 1, 1, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 1, 1, 1, 2 },
+			{ 2, 0, 0, 3, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2 },
+			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+	};
+
+	public static int[][] tileMap2 = {
+			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
+	};
 
 	private static double tileLength = 48;
 	private static double tileWidth = 48;
@@ -32,26 +47,42 @@ public class Tile {
 	 * @return
 	 */
 
-	public static List<Entity<? extends javafx.scene.shape.Shape>> loadTile(String map) {
-		List<Entity<? extends javafx.scene.shape.Shape>> entities = new ArrayList<>();
-		String[] lines = map.split("\n");
-		double y = 0.0;
-		for (String line : lines) {
-			double x = 0.0;
-			for (int pos = 0; pos < line.length(); pos++) {
-				Entity<? extends javafx.scene.shape.Shape> entity = null;
-				switch (line.charAt(pos)) {
-					case ' ': entity = new FloorGrass(x, y); break;
-					case 'O': entity = new LongGrass(x, y); break;
-					case 'o': entity = new Flower(x, y); break;
-					case '#': entity = new Tree(x, y); break;
+	public static List<Entity> loadTile(int[][] tileMap) {
+
+		List<Entity> entities = new ArrayList<>();
+
+		int mapLength = tileMap.length;
+		int mapWidth = tileMap[0].length;
+
+
+
+		for (int i = 0; i < mapLength; i++) {
+			for (int j = 0; j < mapWidth; j++) {
+
+				switch (tileMap[i][j]) {
+					case 0:
+						entities.add(new FloorGrass(j * tileWidth, i * tileLength));
+						break;
+					case 1:
+						entities.add(new LongGrass(j * tileWidth, i * tileLength));
+						break;
+					case 2:
+						entities.add(new Tree(j * tileWidth, i * tileLength));
+						break;
+					case 3:
+						entities.add(new Flower(j * tileWidth, i * tileLength));
+						break;
+					case 4:
+						entities.add(new Map1Transition(j * tileWidth, i * tileLength));
+						break;
+					case 5:
+						entities.add(new Map2Transition(j * tileWidth, i * tileLength));
+						break;
+
 				}
-				if (entity != null) {
-					entities.add(entity);
-				}
-				x += tileWidth;
+
+
 			}
-			y += tileLength;
 		}
 		return entities;
 	}
