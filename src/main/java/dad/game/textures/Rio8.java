@@ -1,15 +1,16 @@
-package dad.game.engine;
+package dad.game.textures;
 
+import dad.game.engine.StaticEntity;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 
-public class Rio11 extends StaticEntity {
+public class Rio8 extends StaticEntity {
 
-    public Rio11(double x, double y) {
-        super(new Image("/images/Rio11.png"), x, y);
+    public Rio8(double x, double y) {
+        super(new Image("/images/Rio8.png"), x, y);
     }
 
     // Comando para Checkear colisiones
