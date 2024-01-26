@@ -10,7 +10,6 @@ import javafx.scene.shape.Rectangle;
 import dad.game.engine.Direction;
 
 
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -57,9 +56,6 @@ public class Enemy extends Entity {
     }
 
 
-
-
-
     @Override
     public void update(long timeDifference) {
         animations.values().forEach(animation -> animation.update(timeDifference));
@@ -83,8 +79,6 @@ public class Enemy extends Entity {
         // Actualizar la animación según la dirección
         updateAnimation(directionX, directionY);
     }
-
-
 
 
     private void updateAnimation(double directionX, double directionY) {

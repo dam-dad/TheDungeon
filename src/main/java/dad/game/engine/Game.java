@@ -54,11 +54,11 @@ public class Game extends AnimationTimer {
 
 
         // Crear un enemigo (Comentar esta linea para desactivar el enemigo)
-/*
+
         Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
         Enemy enemy = new Enemy(200.0, 200.0, 30, player);
         this.entities.add(enemy);
-        //Comentar hasta aquí*/
+        //Comentar hasta aquí
 
     }
 
