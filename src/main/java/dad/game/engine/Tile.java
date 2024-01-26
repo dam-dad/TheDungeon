@@ -1,27 +1,27 @@
 package dad.game.engine;
 
-import dad.game.textures.*;
+import dad.game.ui.Enemy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *   Clase que contiene los tilemap y contiene el metodo que carga los tiles que se pintan 
+ *   Clase que contiene los tilemap y contiene el metodo que carga los tiles que se pintan
  *   del juego segun el numero de cada posicion del tilemap
  */
 public class Tile {
 
 	public static int[][] tileMap1 = {
-			{ 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 12, 12, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 16, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 6, 15, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 10, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+			{ 2, 17, 17, 17, 17, 17, 4, 4, 17, 17, 17, 17, 17, 17, 18 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 12, 12, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 16, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 0, 6, 15, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 0, 10, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 0, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
+			{ 2, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 18 },
 	};
 
 	public static int[][] tileMap2 = {
@@ -36,7 +36,7 @@ public class Tile {
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
 	};
-	
+
 	public static int[][] tileMap3 = {
 			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
 			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
@@ -49,11 +49,11 @@ public class Tile {
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
 	};
-	
+
 	private static double tileLength = 48;
 	private static double tileWidth = 48;
 
-	
+
 	/**
 	 * Recorremos el tilemap pasado y cargamos un tile según el número que detecta dentro del tilemap
 	 * @param Le pasamos por parametro el tilemap y lo recorremos
@@ -124,7 +124,16 @@ public class Tile {
 					case 16:
 						entities.add(new Rio11(j * tileWidth, i * tileLength));
 						break;
-						
+					case 17:
+						entities.add(new Muro2(j * tileWidth, i * tileLength));
+						break;
+					case 18:
+						entities.add(new Muro3(j * tileWidth, i * tileLength));
+						break;
+					case 19:
+						entities.add(new Muro4(j * tileWidth, i * tileLength));
+						break;
+
 				}
 			}
 		}
@@ -137,5 +146,5 @@ public class Tile {
 
 	public static double getTileWidth() {
 		return tileWidth;
-	}		
+	}
 }
