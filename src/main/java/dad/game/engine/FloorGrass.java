@@ -9,7 +9,7 @@ import javafx.scene.shape.Shape;
 public class FloorGrass extends StaticEntity {
 	
 	public FloorGrass(double x, double y) {
-		super(new Image("/images/prueba1.png"), x, y);
+		super(new Image("/images/Cesped1.png"), x, y);
 	}
 
 	@Override

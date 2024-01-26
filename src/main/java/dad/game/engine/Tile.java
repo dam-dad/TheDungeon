@@ -13,14 +13,14 @@ public class Tile {
 
 	public static int[][] tileMap1 = {
 			{ 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2 },
-			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2 },
-			{ 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 1, 1, 1, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 1, 1, 1, 2 },
-			{ 2, 0, 0, 3, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 12, 12, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 16, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 6, 15, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 10, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
 	};
 
@@ -36,7 +36,20 @@ public class Tile {
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
 	};
-
+	
+	public static int[][] tileMap3 = {
+			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
+			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
+	};
+	
 	private static double tileLength = 48;
 	private static double tileWidth = 48;
 
@@ -78,10 +91,41 @@ public class Tile {
 					case 5:
 						entities.add(new Map2Transition(j * tileWidth, i * tileLength));
 						break;
-
+					case 6:
+						entities.add(new Rio1(j * tileWidth, i * tileLength));
+						break;
+					case 7:
+						entities.add(new Rio2(j * tileWidth, i * tileLength));
+						break;
+					case 8:
+						entities.add(new Rio3(j * tileWidth, i * tileLength));
+						break;
+					case 9:
+						entities.add(new Rio4(j * tileWidth, i * tileLength));
+						break;
+					case 10:
+						entities.add(new Rio5(j * tileWidth, i * tileLength));
+						break;
+					case 11:
+						entities.add(new Rio6(j * tileWidth, i * tileLength));
+						break;
+					case 12:
+						entities.add(new Rio7(j * tileWidth, i * tileLength));
+						break;
+					case 13:
+						entities.add(new Rio8(j * tileWidth, i * tileLength));
+						break;
+					case 14:
+						entities.add(new Rio9(j * tileWidth, i * tileLength));
+						break;
+					case 15:
+						entities.add(new Rio10(j * tileWidth, i * tileLength));
+						break;
+					case 16:
+						entities.add(new Rio11(j * tileWidth, i * tileLength));
+						break;
+						
 				}
-
-
 			}
 		}
 		return entities;
