@@ -1,5 +1,6 @@
 package dad.game.ui;
 
+import dad.game.combate.Character;
 import dad.game.engine.Animation;
 import dad.game.engine.Direction;
 import dad.game.engine.Entity;
@@ -14,13 +15,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class Enemy extends Entity {
+public class Enemy extends Character {
 
     private double speed;
     private Player player;
     private Map<Direction, Animation> animations;
 
-    public Enemy(double initialPosX, double initialPosY, double speed, Player player) {
+    public Enemy(int health, int attackDamage, int defense,double initialPosX, double initialPosY, double speed, Player player) {
+        super(health, attackDamage, defense);
+
         this.posX = initialPosX;
         this.posY = initialPosY;
         this.width = (int) (100 * SCALE);
@@ -28,10 +31,6 @@ public class Enemy extends Entity {
         this.speed = speed;
         this.player = player;
         this.animations = createAnimations();
-    }
-
-    public Enemy(double initialPosX, double initialPosY) {
-        super();
     }
 
     private Map<Direction, Animation> createAnimations() {
@@ -97,6 +96,11 @@ public class Enemy extends Entity {
                 setDirection(Direction.NORTH);
             }
         }
+    }
+
+
+    public boolean isDefeated() {
+        return this.health <= 0;
     }
 
     @Override

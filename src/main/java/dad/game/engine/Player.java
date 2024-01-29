@@ -1,13 +1,21 @@
 package dad.game.engine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import dad.game.combate.ListEnemys;
+import dad.game.ui.Enemy;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import dad.game.combate.Character;
 
-public class Player extends Entity {
+public class Player extends Character  {
+
+    private static final double ATTACK_RANGE = 100;
+    private ListEnemys listEnemys;
 
     private static final long ANIMATION_SPEED = 125000;
 
@@ -34,8 +42,11 @@ public class Player extends Entity {
     private Animation animation;
     private Direction actions;
 
-    public Player(double posX, double posY, double speed) {
-        super();
+    public Player(ListEnemys listEnemys, int health, int attackDamage, int defense,double posX, double posY, double speed) {
+        super(health, attackDamage, defense);
+
+
+        this.listEnemys = listEnemys;
 
         // variables of movement speed
         this.xSpeed = speed;
@@ -169,4 +180,26 @@ public class Player extends Entity {
         return new Rectangle(shapeX, shapeY, width, height / 2);
     }
 
+    private List<Enemy> getEnemiesInRange() {
+        List<Enemy> enemiesInRange = new ArrayList<>();
+        for (Enemy enemy : listEnemys.getAllEnemies()) {
+            if (isInRange(this, enemy)) {
+                enemiesInRange.add(enemy);
+            }
+        }
+        return enemiesInRange;
+    }
+
+
+    private boolean isInRange(Character attacker, Character target) {
+        double distance = Math.sqrt(Math.pow(attacker.getPosX() - target.getPosX(), 2) + Math.pow(attacker.getPosY() - target.getPosY(), 2));
+        return distance <= ATTACK_RANGE; // 'ATTACK_RANGE' es una constante que define el rango de ataque
+    }
+
+    public void attackWithSword() {
+        List<Enemy> enemiesInRange = getEnemiesInRange();
+        for (Enemy enemy : enemiesInRange) {
+            this.attack(enemy);
+        }
+    }
 }

@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import dad.game.combate.ListEnemys;
 import dad.game.ui.Enemy;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
@@ -26,6 +27,7 @@ public class Game extends AnimationTimer {
     private GraphicsContext graphicsContext;
 
     private Player player;
+    ListEnemys listEnemys = new ListEnemys();
     private List<Entity> entities;
 
     private Set<KeyCode> input = new HashSet<>();
@@ -48,17 +50,21 @@ public class Game extends AnimationTimer {
     }
 
     public void init() {
-        this.player = new Player(64, 64, 2);
+        this.player = new Player(listEnemys,100,25,50,64, 64, 2);
        // this.entities.addAll(Tile.loadTile(Tile.tileMap1));
         this.entities = Tile.loadTile(Tile.tileMap1);
 
 
         // Crear un enemigo (Comentar esta linea para desactivar el enemigo)
 
+
         Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
-        Enemy enemy = new Enemy(200.0, 200.0, 30, player);
+        Enemy enemy = new Enemy(100,25,50,200.0, 200.0, 30, player);
+        listEnemys.addEnemy(enemy);
         this.entities.add(enemy);
         //Comentar hasta aquí
+
+        listEnemys.removeEnemy(enemy);
 
     }
 
@@ -103,6 +109,9 @@ public class Game extends AnimationTimer {
                 ((Enemy) entity).update(timeDifference);
             }
         });
+
+        entities.removeIf(entity -> entity instanceof Enemy && ((Enemy) entity).isDefeated());
+        listEnemys.getAllEnemies().removeIf(Enemy::isDefeated);
     }
 
     // procesamos las entradas
@@ -119,6 +128,10 @@ public class Game extends AnimationTimer {
         if (input.contains(KeyCode.D) || input.contains(KeyCode.RIGHT)) {
             player.move(Direction.WEST);
         }
+        if (input.contains(KeyCode.SPACE)) { // Suponiendo que SPACE es el botón de ataque
+            player.attackWithSword();
+        }
+
     }
 
     // chequeamos colisions
@@ -141,5 +154,8 @@ public class Game extends AnimationTimer {
         entities.forEach(entity -> entity.render(graphicsContext));
         player.render(graphicsContext);
     }
+
+
+
 
 }
