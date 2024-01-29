@@ -1,6 +1,6 @@
 package dad.game.engine;
 
-import dad.game.ui.Enemy;
+import dad.game.textures.*;
 
 import java.util.ArrayList;
 import java.util.List;
