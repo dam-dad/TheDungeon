@@ -150,8 +150,40 @@ public class Game extends AnimationTimer {
             if (entity instanceof Enemy) {
                 // Lógica para manejar la colisión con un enemigo
                 // Por ejemplo, iniciar un combate o aplicar daño al jugador
+                handleEnemyCollision((Enemy) entity);
+
             }
         }
+    }
+
+    private void handleEnemyCollision(Enemy enemy) {
+        // Aplicar daño al jugador
+        player.takeDamage(enemy.getAttackDamage());
+
+        // Aplicar daño al enemigo (si el jugador tiene un ataque automático o defensivo)
+        enemy.takeDamage(player.getAttackDamage());
+
+
+        applyKnockback(player, enemy);
+
+    }
+
+    private void applyKnockback(Player player, Enemy enemy) {
+        // Determinar la dirección del retroceso
+        double dx = player.getPosX() - enemy.getPosX();
+        double dy = player.getPosY() - enemy.getPosY();
+
+        // Normalizar la dirección
+        double length = Math.sqrt(dx * dx + dy * dy);
+        if (length != 0) {
+            dx /= length;
+            dy /= length;
+        }
+
+        // Aplicar el retroceso
+        double knockbackDistance = 0.2; // Ajusta este valor según sea necesario
+        player.setPosX(player.getPosX() + dx * knockbackDistance);
+        player.setPosY(player.getPosY() + dy * knockbackDistance);
     }
 
     // pinta todo

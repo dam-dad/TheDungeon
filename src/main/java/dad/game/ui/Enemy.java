@@ -82,6 +82,10 @@ public class Enemy extends Character {
 
         // Actualizar la animación según la dirección
         updateAnimation(directionX, directionY);
+
+        if (this.isDefeated()) {
+            die();
+        }
     }
 
 
@@ -120,5 +124,9 @@ public class Enemy extends Character {
     @Override
     public Rectangle getCollisionShape() {
         return new Rectangle(posX, posY, width, height);
+    }
+
+    public int getAttackDamage() {
+        return attackDamage;
     }
 }

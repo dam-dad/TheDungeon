@@ -214,4 +214,16 @@ public class Player extends Character {
         }
     }
 
+    public int getAttackDamage() {
+        return attackDamage;
+    }
+
+    public void setPosX(double posX) {
+        this.posX = posX;
+    }
+
+    public void setPosY(double posY) {
+        this.posY = posY;
+    }
+
 }
