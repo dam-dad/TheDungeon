@@ -27,18 +27,19 @@ public class Character extends Entity {
          * Ataca a otro personaje.
          * @param target El personaje objetivo del ataque.
          */
-        public void attack(Character target) {
+        public void attack(Character target, int damage) {
             if (target != null) {
-                target.takeDamage(attackDamage);
+                target.takeDamage(damage);
             }
         }
 
-        public void attackWithSword() {
-            List<Enemy> enemiesInRange = getEnemiesInRange();
-            for (Enemy enemy : enemiesInRange) {
-                this.attack(enemy);
-            }
+    public void attackWithSword() {
+        List<Enemy> enemiesInRange = getEnemiesInRange();
+        for (Enemy enemy : enemiesInRange) {
+            // Asumiendo que 'attackDamage' es el daño de ataque del jugador
+            this.attack(enemy, this.attackDamage);
         }
+    }
 
 
     private List<Enemy> getEnemiesInRange() {
@@ -67,7 +68,7 @@ public class Character extends Entity {
             }
         }
 
-        private void die() {
+        protected void die() {
             // Lógica para manejar la muerte del personaje
         }
 

@@ -1,6 +1,7 @@
 package dad.game.ui;
 
 import dad.game.combate.Character;
+import dad.game.combate.ListEnemys;
 import dad.game.engine.Animation;
 import dad.game.engine.Direction;
 import dad.game.engine.Entity;
@@ -20,9 +21,13 @@ public class Enemy extends Character {
     private double speed;
     private Player player;
     private Map<Direction, Animation> animations;
+    private ListEnemys listEnemys;
 
-    public Enemy(int health, int attackDamage, int defense,double initialPosX, double initialPosY, double speed, Player player) {
+
+    public Enemy(ListEnemys listEnemys, int health, int attackDamage, int defense,double initialPosX, double initialPosY, double speed, Player player) {
         super(health, attackDamage, defense);
+        this.listEnemys = listEnemys;
+
 
         this.posX = initialPosX;
         this.posY = initialPosY;
@@ -102,6 +107,15 @@ public class Enemy extends Character {
     public boolean isDefeated() {
         return this.health <= 0;
     }
+
+    @Override
+    protected void die() {
+        if (isDefeated()) {
+            listEnemys.removeEnemy(this);
+            // Aquí puedes agregar lógica adicional, como reproducir una animación de muerte
+        }
+    }
+
 
     @Override
     public Rectangle getCollisionShape() {

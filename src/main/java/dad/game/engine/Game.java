@@ -59,7 +59,7 @@ public class Game extends AnimationTimer {
 
 
         Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
-        Enemy enemy = new Enemy(100,25,50,200.0, 200.0, 30, player);
+        Enemy enemy = new Enemy(listEnemys,25,25,50,200.0, 200.0, 30, player);
         listEnemys.addEnemy(enemy);
         this.entities.add(enemy);
         //Comentar hasta aquí
@@ -130,6 +130,7 @@ public class Game extends AnimationTimer {
         }
         if (input.contains(KeyCode.SPACE)) { // Suponiendo que SPACE es el botón de ataque
             player.attackWithSword();
+            System.out.println("atacando al enemigo");
         }
 
     }
@@ -138,13 +139,17 @@ public class Game extends AnimationTimer {
     private void checkCollisions() {
         for (Entity entity : entities) {
             if (player.checkCollision(entity)) {
-                System.out.println("Collision detected with: " + entity.getClass().getSimpleName());
+              //  System.out.println("Collision detected with: " + entity.getClass().getSimpleName());
                 if (entity instanceof Map1Transition) {
                     nextMap1 = true;
                 } else if (entity instanceof Map2Transition) {
                     nextMap2 = true;
                 }
                 player.move(null);
+            }
+            if (entity instanceof Enemy) {
+                // Lógica para manejar la colisión con un enemigo
+                // Por ejemplo, iniciar un combate o aplicar daño al jugador
             }
         }
     }

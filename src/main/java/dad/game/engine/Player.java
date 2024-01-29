@@ -6,16 +6,21 @@ import java.util.List;
 import java.util.Map;
 
 import dad.game.combate.ListEnemys;
+import dad.game.combate.Weapon;
 import dad.game.ui.Enemy;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import dad.game.combate.Character;
 
-public class Player extends Character  {
 
-    private static final double ATTACK_RANGE = 100;
+
+public class Player extends Character {
+
+    private static final double ATTACK_RANGE = 1000.0;
     private ListEnemys listEnemys;
+    private Weapon equippedWeapon;
+
 
     private static final long ANIMATION_SPEED = 125000;
 
@@ -42,7 +47,7 @@ public class Player extends Character  {
     private Animation animation;
     private Direction actions;
 
-    public Player(ListEnemys listEnemys, int health, int attackDamage, int defense,double posX, double posY, double speed) {
+    public Player(ListEnemys listEnemys, int health, int attackDamage, int defense, double posX, double posY, double speed) {
         super(health, attackDamage, defense);
 
 
@@ -62,6 +67,10 @@ public class Player extends Character  {
         // variables of character size
         this.width = (int) (100 * SCALE);
         this.height = (int) (150 * SCALE);
+    }
+
+    public void equipWeapon(Weapon weapon) {
+        this.equippedWeapon = weapon;
     }
 
 
@@ -197,9 +206,12 @@ public class Player extends Character  {
     }
 
     public void attackWithSword() {
-        List<Enemy> enemiesInRange = getEnemiesInRange();
-        for (Enemy enemy : enemiesInRange) {
-            this.attack(enemy);
+        if (equippedWeapon != null) {
+            List<Enemy> enemiesInRange = getEnemiesInRange();
+            for (Enemy enemy : enemiesInRange) {
+                this.attack(enemy, equippedWeapon.getDamage());
+            }
         }
     }
+
 }
