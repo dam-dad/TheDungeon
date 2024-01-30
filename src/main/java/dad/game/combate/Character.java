@@ -1,6 +1,7 @@
 package dad.game.combate;
 
 import dad.game.engine.Entity;
+import dad.game.engine.Player;
 import dad.game.ui.Enemy;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.shape.Shape;
@@ -69,7 +70,20 @@ public class Character extends Entity {
         }
 
         protected void die() {
-            // Lógica para manejar la muerte del personaje
+            if (this instanceof Enemy) {
+                // Eliminar el enemigo de la lista de enemigos activos
+                listEnemys.removeEnemy((Enemy) this);
+
+
+            }
+
+            if (this instanceof Player) {
+                // Opcional: Mostrar pantalla de 'Game Over' o similar
+                // gameOverScreen();
+
+                // Opcional: Reiniciar el nivel o el juego
+                // restartLevel();
+            }
         }
 
         @Override

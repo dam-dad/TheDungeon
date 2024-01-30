@@ -47,8 +47,10 @@ public class Player extends Character {
     private Animation animation;
     private Direction actions;
 
-    public Player(ListEnemys listEnemys, int health, int attackDamage, int defense, double posX, double posY, double speed) {
+    public Player(ListEnemys listEnemys,  int health, int attackDamage, int defense, double posX, double posY, double speed) {
         super(health, attackDamage, defense);
+
+        equipWeapon(new Weapon("Sword", 10)); // Ejemplo: equipar una espada con 10 de daño
 
 
         this.listEnemys = listEnemys;
@@ -211,6 +213,8 @@ public class Player extends Character {
             for (Enemy enemy : enemiesInRange) {
                 this.attack(enemy, equippedWeapon.getDamage());
             }
+        }else {
+            System.out.println("No weapon equipped.");
         }
     }
 

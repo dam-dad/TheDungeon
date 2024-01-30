@@ -9,6 +9,12 @@ public class Weapon {
         return damage;
     }
 
+    public Weapon(String name, int damage) {
+        this.name = name;
+        this.damage = damage;
+    }
+
+
     public void setDamage(int damage) {
         this.damage = damage;
     }
