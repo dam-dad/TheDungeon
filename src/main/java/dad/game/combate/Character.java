@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Character extends Entity {
-    private static final double ATTACK_RANGE = 100.0;
+    private static final double ATTACK_RANGE = 10000;
     protected int health;
         protected int attackDamage;
         protected int defense;

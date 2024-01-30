@@ -50,7 +50,7 @@ public class Game extends AnimationTimer {
     }
 
     public void init() {
-        this.player = new Player(listEnemys,100,25,50,64, 64, 2);
+        this.player = new Player(listEnemys,100,10,0,64, 64, 2);
        // this.entities.addAll(Tile.loadTile(Tile.tileMap1));
         this.entities = Tile.loadTile(Tile.tileMap1);
 
@@ -59,7 +59,7 @@ public class Game extends AnimationTimer {
 
 
         Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
-        Enemy enemy = new Enemy(listEnemys,25,25,50,200.0, 200.0, 30, player);
+        Enemy enemy = new Enemy(listEnemys,1000,25,0,200.0, 200.0, 30, player);
         listEnemys.addEnemy(enemy);
         this.entities.add(enemy);
         //Comentar hasta aquí
