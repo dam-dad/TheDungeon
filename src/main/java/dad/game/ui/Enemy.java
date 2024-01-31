@@ -1,32 +1,25 @@
 package dad.game.ui;
 
 import dad.game.combate.Character;
-import dad.game.combate.ListEnemys;
 import dad.game.engine.Animation;
 import dad.game.engine.Direction;
-import dad.game.engine.Entity;
 import dad.game.engine.Player;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
-import dad.game.engine.Direction;
-
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class Enemy extends Character {
 
     private double speed;
     private Player player;
     private Map<Direction, Animation> animations;
-    private ListEnemys listEnemys;
 
-
-    public Enemy(ListEnemys listEnemys, int health, int attackDamage, int defense,double initialPosX, double initialPosY, double speed, Player player) {
+    //todo eliminar listEnemys
+    public Enemy( int health, int attackDamage, int defense,double initialPosX, double initialPosY, double speed, Player player) {
         super(health, attackDamage, defense);
-        this.listEnemys = listEnemys;
 
 
         this.posX = initialPosX;
@@ -112,12 +105,15 @@ public class Enemy extends Character {
         return this.health <= 0;
     }
 
-    @Override
-    protected void die() {
+    protected void die(List<Enemy> allEnemies) {
         if (isDefeated()) {
-            listEnemys.removeEnemy(this);
+            removeEnemy(allEnemies);
             // Aquí puedes agregar lógica adicional, como reproducir una animación de muerte
         }
+    }
+
+    public void removeEnemy(List<Enemy> allEnemies) {
+        allEnemies.remove(this);
     }
 
 

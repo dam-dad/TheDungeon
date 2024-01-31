@@ -5,14 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import dad.game.combate.ListEnemys;
 import dad.game.ui.Enemy;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import javafx.scene.shape.Shape;
 
 
 /**
@@ -27,7 +25,6 @@ public class Game extends AnimationTimer {
     private GraphicsContext graphicsContext;
 
     private Player player;
-    ListEnemys listEnemys = new ListEnemys();
     private List<Entity> entities;
 
     private Set<KeyCode> input = new HashSet<>();
@@ -50,7 +47,7 @@ public class Game extends AnimationTimer {
     }
 
     public void init() {
-        this.player = new Player(listEnemys,100,10,0,64, 64, 2);
+        this.player = new Player(100,10,0,64, 64, 2);
        // this.entities.addAll(Tile.loadTile(Tile.tileMap1));
         this.entities = Tile.loadTile(Tile.tileMap1);
 
@@ -58,13 +55,11 @@ public class Game extends AnimationTimer {
         // Crear un enemigo (Comentar esta linea para desactivar el enemigo)
 
 
-        Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
-        Enemy enemy = new Enemy(listEnemys,1000,25,0,200.0, 200.0, 30, player);
-        listEnemys.addEnemy(enemy);
+        //Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
+        Enemy enemy = new Enemy(1000,25,0,200.0, 200.0, 30, player);
         this.entities.add(enemy);
         //Comentar hasta aquí
 
-        listEnemys.removeEnemy(enemy);
 
     }
 
@@ -111,7 +106,7 @@ public class Game extends AnimationTimer {
         });
 
         entities.removeIf(entity -> entity instanceof Enemy && ((Enemy) entity).isDefeated());
-        listEnemys.getAllEnemies().removeIf(Enemy::isDefeated);
+       // listEnemys.getAllEnemies().removeIf(Enemy::isDefeated);
     }
 
     // procesamos las entradas
@@ -161,13 +156,15 @@ public class Game extends AnimationTimer {
         player.takeDamage(enemy.getAttackDamage());
 
         // Aplicar daño al enemigo (si el jugador tiene un ataque automático o defensivo)
-        enemy.takeDamage(player.getAttackDamage());
+
+        // enemy.takeDamage(player.getAttackDamage());
 
 
         applyKnockback(player, enemy);
 
     }
 
+    //TODO Arreglar nuevo retroceso cuando enemy colisiona con el jugador rebotar a Pos contraria
     private void applyKnockback(Player player, Enemy enemy) {
         // Determinar la dirección del retroceso
         double dx = player.getPosX() - enemy.getPosX();

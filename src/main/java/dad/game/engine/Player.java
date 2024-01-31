@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dad.game.combate.ListEnemys;
 import dad.game.combate.Weapon;
 import dad.game.ui.Enemy;
 import javafx.scene.canvas.GraphicsContext;
@@ -18,8 +17,9 @@ import dad.game.combate.Character;
 public class Player extends Character {
 
     private static final double ATTACK_RANGE = 1000.0;
-    private ListEnemys listEnemys;
     private Weapon equippedWeapon;
+
+    List<Enemy> allEnemies = new ArrayList<>();
 
 
     private static final long ANIMATION_SPEED = 125000;
@@ -47,13 +47,12 @@ public class Player extends Character {
     private Animation animation;
     private Direction actions;
 
-    public Player(ListEnemys listEnemys,  int health, int attackDamage, int defense, double posX, double posY, double speed) {
+    public Player(  int health, int attackDamage, int defense, double posX, double posY, double speed) {
         super(health, attackDamage, defense);
 
         equipWeapon(new Weapon("Sword", 10)); // Ejemplo: equipar una espada con 10 de daño
 
 
-        this.listEnemys = listEnemys;
 
         // variables of movement speed
         this.xSpeed = speed;
@@ -191,25 +190,21 @@ public class Player extends Character {
         return new Rectangle(shapeX, shapeY, width, height / 2);
     }
 
-    private List<Enemy> getEnemiesInRange() {
+   /* public List<Enemy> getEnemiesInRange() {
         List<Enemy> enemiesInRange = new ArrayList<>();
-        for (Enemy enemy : listEnemys.getAllEnemies()) {
+        for (Enemy enemy : allEnemies)  {
             if (isInRange(this, enemy)) {
                 enemiesInRange.add(enemy);
             }
         }
         return enemiesInRange;
-    }
+    }*/
 
 
-    private boolean isInRange(Character attacker, Character target) {
-        double distance = Math.sqrt(Math.pow(attacker.getPosX() - target.getPosX(), 2) + Math.pow(attacker.getPosY() - target.getPosY(), 2));
-        return distance <= ATTACK_RANGE; // 'ATTACK_RANGE' es una constante que define el rango de ataque
-    }
 
     public void attackWithSword() {
         if (equippedWeapon != null) {
-            List<Enemy> enemiesInRange = getEnemiesInRange();
+            List<Enemy> enemiesInRange = getEnemiesInRange(allEnemies);
             for (Enemy enemy : enemiesInRange) {
                 this.attack(enemy, equippedWeapon.getDamage());
             }
