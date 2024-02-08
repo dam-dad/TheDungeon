@@ -5,7 +5,9 @@ import dad.game.engine.Animation;
 import dad.game.engine.Direction;
 import dad.game.engine.Player;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +18,8 @@ public class Enemy extends Character {
     private double speed;
     private Player player;
     private Map<Direction, Animation> animations;
+
+    private Direction actions;
 
     //todo eliminar listEnemys
     public Enemy( int health, int attackDamage, int defense,double initialPosX, double initialPosY, double speed, Player player) {
@@ -50,6 +54,10 @@ public class Enemy extends Character {
             // Manejar el caso en que la animación es null (puedes mostrar una imagen predeterminada o realizar alguna acción apropiada)
             System.err.println("La animación es null para la dirección: " + getDirection());
         }
+
+        Rectangle shape = (Rectangle) getCollisionShape();
+        gc.setFill(Color.OLIVEDRAB);
+        gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
     }
 
 
@@ -118,8 +126,28 @@ public class Enemy extends Character {
 
 
     @Override
-    public Rectangle getCollisionShape() {
-        return new Rectangle(posX, posY, width, height);
+    public Shape getCollisionShape() {
+        double shapeX = posX;
+        double shapeY = posY + height / 2;
+
+        // Verifica si la dirección es null antes de realizar el cálculo
+        if (actions != null) {
+            switch (actions) {
+                case SOUTH:
+                    shapeY += speed;
+                    break;
+                case NORTH:
+                    shapeY -= speed;
+                    break;
+                case EAST:
+                    shapeX -= speed;
+                    break;
+                case WEST:
+                    shapeX += speed;
+                    break;
+            }
+        }
+        return new Rectangle(shapeX, shapeY, width, height / 2);
     }
 
     public int getAttackDamage() {

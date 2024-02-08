@@ -8,6 +8,7 @@ import java.util.Map;
 import dad.game.combate.Weapon;
 import dad.game.ui.Enemy;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import dad.game.combate.Character;
@@ -90,10 +91,12 @@ public class Player extends Character {
             // Manejar el caso en que la animación es null (puedes mostrar una imagen predeterminada o realizar alguna acción apropiada)
             System.err.println("La animación es null para la dirección: " + direction);
         }
+
+        Rectangle shape = (Rectangle) getCollisionShape();
+        gc.setFill(Color.OLIVEDRAB);
+        gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
     }
-//		Rectangle shape = getCollisionShape();
-//		gc.setFill(Color.YELLOW);
-//		gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+
 
 /*
     private void apply(Action action) {
@@ -199,6 +202,7 @@ public class Player extends Character {
         }
         return enemiesInRange;
     }*/
+
 
 
 

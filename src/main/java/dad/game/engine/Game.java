@@ -7,6 +7,7 @@ import java.util.Set;
 
 import dad.game.ui.Enemy;
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -31,6 +32,10 @@ public class Game extends AnimationTimer {
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
   //  private List<Entity> objects;
+
+    // Nuevo flag para controlar el estado del knockback
+    private boolean playerInKnockback = false;
+
 
     public Game(Canvas canvas) {
 
@@ -142,46 +147,50 @@ public class Game extends AnimationTimer {
                 }
                 player.move(null);
             }
-            if (entity instanceof Enemy) {
-                // Lógica para manejar la colisión con un enemigo
-                // Por ejemplo, iniciar un combate o aplicar daño al jugador
+            if (entity instanceof Enemy && !playerInKnockback) {
                 handleEnemyCollision((Enemy) entity);
 
             }
+        }
+        // Restablecer el estado de knockback si no hay colisión con enemigos
+        if (entities.stream().noneMatch(e -> e instanceof Enemy && player.checkCollision(e))) {
+            playerInKnockback = false;
         }
     }
 
     private void handleEnemyCollision(Enemy enemy) {
         // Aplicar daño al jugador
         player.takeDamage(enemy.getAttackDamage());
+        applyKnockback(player, enemy);
+        playerInKnockback = true; // Marcar que el jugador está en estado de knockback
 
         // Aplicar daño al enemigo (si el jugador tiene un ataque automático o defensivo)
 
         // enemy.takeDamage(player.getAttackDamage());
 
 
-        applyKnockback(player, enemy);
-
     }
 
     //TODO Arreglar nuevo retroceso cuando enemy colisiona con el jugador rebotar a Pos contraria
     private void applyKnockback(Player player, Enemy enemy) {
-        // Determinar la dirección del retroceso
-        double dx = player.getPosX() - enemy.getPosX();
-        double dy = player.getPosY() - enemy.getPosY();
+        // Convertir las posiciones del jugador y del enemigo en Point2D
+        Point2D playerPosition = new Point2D(player.getPosX(), player.getPosY());
+        Point2D enemyPosition = new Point2D(enemy.getPosX(), enemy.getPosY());
 
-        // Normalizar la dirección
-        double length = Math.sqrt(dx * dx + dy * dy);
-        if (length != 0) {
-            dx /= length;
-            dy /= length;
-        }
+        // Calcular la dirección del retroceso como un vector normalizado
+        // Aquí es donde necesitamos ajustar la dirección del vector
+        Point2D directionVector = playerPosition.subtract(enemyPosition).normalize(); // Cambio aquí
+
+        // Determinar la magnitud del retroceso
+        double knockbackDistance = 0.04; // Ajustado a 1 como mencionaste
 
         // Aplicar el retroceso
-        double knockbackDistance = 0.2; // Ajusta este valor según sea necesario
-        player.setPosX(player.getPosX() + dx * knockbackDistance);
-        player.setPosY(player.getPosY() + dy * knockbackDistance);
+        Point2D newPlayerPosition = playerPosition.add(directionVector.multiply(knockbackDistance));
+        player.setPosX(newPlayerPosition.getX());
+        player.setPosY(newPlayerPosition.getY());
     }
+
+
 
     // pinta todo
     private void render() {
