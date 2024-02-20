@@ -1,6 +1,8 @@
 package dad.game.combate;
 
 import dad.game.ui.Enemy;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Weapon {
@@ -31,7 +33,11 @@ public class Weapon {
         }
     }
 
-
+    public void render(GraphicsContext gc) {
+        gc.setStroke(Color.RED); // Establecer el color del contorno
+        gc.strokeRect(hitbox.getX(), hitbox.getY(), hitbox.getWidth(), hitbox.getHeight());
+        gc.setFill(Color.OLIVEDRAB);
+    }
 
     public void setDamage(int damage) {
         this.damage = damage;

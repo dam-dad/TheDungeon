@@ -33,8 +33,8 @@ public class Game extends AnimationTimer {
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
 
-    private int width = 10;
-    private int height = 10;
+    private int width = 100;
+    private int height = 100;
     Weapon sword = new Weapon("Espada", 10, width, height);
 
 

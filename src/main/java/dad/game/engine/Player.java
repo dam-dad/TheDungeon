@@ -89,8 +89,8 @@ public class Player extends Character {
         }
 
         Rectangle shape = (Rectangle) getCollisionShape();
-        gc.setFill(Color.OLIVEDRAB);
-        gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+       /* gc.setFill(Color.OLIVEDRAB);
+        gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());*/
     }
 
 
