@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import dad.game.combate.Weapon;
 import dad.game.ui.Enemy;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
@@ -31,7 +32,13 @@ public class Game extends AnimationTimer {
     private Set<KeyCode> input = new HashSet<>();
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
-  //  private List<Entity> objects;
+
+    private int width = 10;
+    private int height = 10;
+    Weapon sword = new Weapon("Espada", 10, width, height);
+
+
+    //  private List<Entity> objects;
 
     // Nuevo flag para controlar el estado del knockback
     private boolean playerInKnockback = false;
@@ -52,7 +59,9 @@ public class Game extends AnimationTimer {
     }
 
     public void init() {
-        this.player = new Player(100,10,0,64, 64, 2);
+
+
+        this.player = new Player(100,25,0,64, 64, 2);
        // this.entities.addAll(Tile.loadTile(Tile.tileMap1));
         this.entities = Tile.loadTile(Tile.tileMap1);
 
@@ -129,10 +138,24 @@ public class Game extends AnimationTimer {
             player.move(Direction.WEST);
         }
         if (input.contains(KeyCode.SPACE)) { // Suponiendo que SPACE es el botón de ataque
-            player.attackWithSword();
+            useSword();
+            player.attackWithSword(sword);
             System.out.println("atacando al enemigo");
         }
 
+    }
+
+    private void useSword() {
+        // Crear una instancia de la espada
+        Weapon sword = new Weapon("Espada", 10, width, height); // Utiliza los valores adecuados para width y height
+
+        // Realizar el ataque con la espada
+        for (Entity entity : entities) {
+            if (entity instanceof Enemy && player.checkCollision(entity)) {
+                Enemy enemy = (Enemy) entity; // Declaramos la variable enemy aquí
+                enemy.takeDamage(sword.getDamage()); // Aplica el daño de la espada al enemigo
+            }
+        }
     }
 
     // chequeamos colisions

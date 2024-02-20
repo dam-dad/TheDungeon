@@ -35,6 +35,10 @@ public class Enemy extends Character {
         this.animations = createAnimations();
     }
 
+    public static Rectangle getHitbox() {
+        return new Rectangle(0, 0, 100, 150);
+    }
+
     private Map<Direction, Animation> createAnimations() {
         Map<Direction, Animation> enemyAnimations = new HashMap<>();
         // Define las animaciones para cada dirección del enemigo
@@ -113,11 +117,9 @@ public class Enemy extends Character {
         return this.health <= 0;
     }
 
-    protected void die(List<Enemy> allEnemies) {
-        if (isDefeated()) {
-            removeEnemy(allEnemies);
-            // Aquí puedes agregar lógica adicional, como reproducir una animación de muerte
-        }
+    protected void die() {
+        System.out.println("Enemigo muerto");
+        // Aquí puedes agregar lógica adicional, como eliminar al enemigo del juego
     }
 
     public void removeEnemy(List<Enemy> allEnemies) {

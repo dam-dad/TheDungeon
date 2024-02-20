@@ -14,7 +14,6 @@ import javafx.scene.shape.Shape;
 import dad.game.combate.Character;
 
 
-
 public class Player extends Character {
 
     private static final double ATTACK_RANGE = 1000.0;
@@ -48,11 +47,8 @@ public class Player extends Character {
     private Animation animation;
     private Direction actions;
 
-    public Player(  int health, int attackDamage, int defense, double posX, double posY, double speed) {
+    public Player(int health, int attackDamage, int defense, double posX, double posY, double speed) {
         super(health, attackDamage, defense);
-
-        equipWeapon(new Weapon("Sword", 10)); // Ejemplo: equipar una espada con 10 de daño
-
 
 
         // variables of movement speed
@@ -204,15 +200,13 @@ public class Player extends Character {
     }*/
 
 
-
-
-    public void attackWithSword() {
-        if (equippedWeapon != null) {
+    public void attackWithSword(Weapon sword) {
+        if (sword != null) {
             List<Enemy> enemiesInRange = getEnemiesInRange(allEnemies);
             for (Enemy enemy : enemiesInRange) {
-                this.attack(enemy, equippedWeapon.getDamage());
+                this.attack(enemy, sword.getDamage());
             }
-        }else {
+        } else {
             System.out.println("No weapon equipped.");
         }
     }

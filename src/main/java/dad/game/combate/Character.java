@@ -32,20 +32,21 @@ public class Character extends Entity {
      * Ataca a otro personaje.
      *
      * @param target El personaje objetivo del ataque.
+     * @param damage
      */
     public void attack(Character target, int damage) {
         if (target != null) {
-            target.takeDamage(damage);
+            target.takeDamage(this.attackDamage);
         }
     }
 
-    public void attackWithSword(List<Enemy> allEnemies) {
+   /* public void attackWithSword(List<Enemy> allEnemies) {
         List<Enemy> enemiesInRange = getEnemiesInRange(allEnemies);
         for (Enemy enemy : enemiesInRange) {
             // Asumiendo que 'attackDamage' es el daño de ataque del jugador
             this.attack(enemy, this.attackDamage);
         }
-    }
+    }*/
 
 
     protected List<Enemy> getEnemiesInRange(List<Enemy> allEnemies) {
@@ -77,21 +78,11 @@ public class Character extends Entity {
         }
     }
 
+
     protected void die() {
-        if (this instanceof Enemy) {
-            // Eliminar el enemigo de la lista de enemigos activos
 
-
-        }
-
-        if (this instanceof Player) {
-            // Opcional: Mostrar pantalla de 'Game Over' o similar
-            // gameOverScreen();
-
-            // Opcional: Reiniciar el nivel o el juego
-            // restartLevel();
-        }
     }
+
 
     @Override
     public void render(GraphicsContext gc) {
