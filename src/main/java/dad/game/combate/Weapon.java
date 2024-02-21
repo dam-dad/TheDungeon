@@ -33,11 +33,11 @@ public class Weapon {
         }
     }
 
-    public void render(GraphicsContext gc) {
-        gc.setStroke(Color.RED); // Establecer el color del contorno
-        gc.strokeRect(hitbox.getX(), hitbox.getY(), hitbox.getWidth(), hitbox.getHeight());
-        gc.setFill(Color.OLIVEDRAB);
+    public void render(GraphicsContext gc, double x, double y) {
+        gc.setStroke(Color.RED);
+        gc.strokeRect(x, y, hitbox.getWidth(), hitbox.getHeight());
     }
+
 
     public void setDamage(int damage) {
         this.damage = damage;
