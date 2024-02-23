@@ -15,7 +15,7 @@ public class Map1Transition extends StaticEntity {
      */
 
     public Map1Transition(double x, double y) {
-        super(new Image("/images/Ground12.png"), x, y);
+        super(new Image("/images/CespedDesga.png"), x, y);
     }
 
 

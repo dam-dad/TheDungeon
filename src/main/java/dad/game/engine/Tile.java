@@ -12,29 +12,29 @@ import java.util.List;
 public class Tile {
 
 	public static int[][] tileMap1 = {
-			{ 2, 17, 17, 17, 17, 17, 4, 4, 17, 17, 17, 17, 17, 17, 18 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 12, 12, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 16, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 0, 6, 15, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 0, 10, 14, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 0, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18 },
-			{ 2, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 18 },
+			{ 20, 17, 17, 17, 17, 41, 4, 4, 40, 17, 17, 41, 6, 8, 40 },
+			{ 24, 26, 36, 26, 26, 26, 26, 26, 26, 26, 26, 26, 6, 15, 12 },
+			{ 41, 26, 26, 26, 26, 26, 36, 26, 26, 26, 26, 36, 10, 16, 16 },
+			{ 12, 12, 12, 7, 26, 26, 26, 26, 26, 26, 26, 26, 26, 36, 39 },
+			{ 16, 16, 14, 8, 26, 26, 26, 26, 26, 30, 31, 31, 32, 26, 18 },
+			{ 38, 26, 6, 8, 36, 26, 26, 26, 26, 29, 27, 27, 33, 26, 18 },
+			{ 24, 36, 6, 15, 7, 26, 26, 26, 26, 29, 27, 27, 33, 26, 18 },
+			{ 24, 26, 10, 14, 8, 26, 36, 26, 26, 28, 35, 35, 34, 26, 18 },
+			{ 24, 26, 26, 6, 8, 26, 26, 26, 26, 26, 26, 26, 26, 26, 18 },
+			{ 23, 19, 38, 6, 8, 39, 19, 19, 19, 19, 19, 19, 19, 19, 22 },
 	};
 
 	public static int[][] tileMap2 = {
-			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
-			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
+			{ 17, 17, 17, 17, 17, 17, 17, 44, 46, 43, 43, 47, 44, 17, 21 },
+			{ 12, 12, 12, 12, 12, 12, 12, 12, 12, 43, 43, 12, 12, 7, 18 },
+			{ 16, 16, 16, 16, 16, 16, 16, 16, 16, 43, 43, 16, 14, 8, 18 },
+			{ 45, 26, 26, 26, 39, 19, 38, 36, 26, 26, 26, 26, 6, 8, 18 },
+			{ 25, 26, 26, 26, 18, 42, 24, 26, 39, 19, 38, 26, 6, 8, 18 },
+			{ 25, 26, 26, 26, 40, 17, 41, 26, 18, 37, 24, 26, 6, 8, 18 },
+			{ 38, 26, 36, 26, 26, 26, 26, 26, 40, 17, 41, 26, 6, 8, 18 },
+			{ 24, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 6, 8, 18 },
+			{ 24, 26, 26, 26, 26, 26, 26, 26, 26, 26, 36, 26, 6, 8, 18 },
+			{ 23, 19, 19, 19, 19, 38, 5, 5, 39, 19, 19, 38, 6, 8, 18 },
 	};
 
 	public static int[][] tileMap3 = {
@@ -42,12 +42,12 @@ public class Tile {
 			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 2 },
+			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 2 },
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
 			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
+			{ 23, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
 	};
 
 	private static double tileLength = 48;
@@ -133,7 +133,93 @@ public class Tile {
 					case 19:
 						entities.add(new Muro4(j * tileWidth, i * tileLength));
 						break;
-
+					case 20:
+						entities.add(new EsquinaMuro1(j * tileWidth, i * tileLength));
+						break;
+					case 21:
+						entities.add(new EsquinaMuro2(j * tileWidth, i * tileLength));
+						break;
+					case 22:
+						entities.add(new EsquinaMuro3(j * tileWidth, i * tileLength));
+						break;
+					case 23:
+						entities.add(new EsquinaMuro4(j * tileWidth, i * tileLength));
+						break;
+					case 24:
+						entities.add(new Muro1(j * tileWidth, i * tileLength));
+						break;
+					case 25:
+						entities.add(new CespedDesga(j * tileWidth, i * tileLength));
+						break;
+					case 26:
+						entities.add(new Cesped2(j * tileWidth, i * tileLength));
+						break;
+					case 27:
+						entities.add(new CespedClaro(j * tileWidth, i * tileLength));
+						break;
+					case 28:
+						entities.add(new EsquinaCesped1(j * tileWidth, i * tileLength));
+						break;
+					case 29:
+						entities.add(new LadoCesped1(j * tileWidth, i * tileLength));
+						break;
+					case 30:
+						entities.add(new EsquinaCesped2(j * tileWidth, i * tileLength));
+						break;
+					case 31:
+						entities.add(new LadoCesped2(j * tileWidth, i * tileLength));
+						break;
+					case 32:
+						entities.add(new EsquinaCesped3(j * tileWidth, i * tileLength));
+						break;
+					case 33:
+						entities.add(new LadoCesped3(j * tileWidth, i * tileLength));
+						break;
+					case 34:
+						entities.add(new EsquinaCesped4(j * tileWidth, i * tileLength));
+						break;
+					case 35:
+						entities.add(new LadoCesped4(j * tileWidth, i * tileLength));
+						break;
+					case 36:
+						entities.add(new Flor(j * tileWidth, i * tileLength));
+						break;
+					case 37:
+						entities.add(new cespedMuro(j * tileWidth, i * tileLength));
+						break;
+					case 38:
+						entities.add(new cespedMuro2(j * tileWidth, i * tileLength));
+						break;
+					case 39:
+						entities.add(new cespedMuro3(j * tileWidth, i * tileLength));
+						break;
+					case 40:
+						entities.add(new cespedMuro4(j * tileWidth, i * tileLength));
+						break;
+					case 41:
+						entities.add(new cespedMuro5(j * tileWidth, i * tileLength));
+						break;
+					case 42:
+						entities.add(new florMuro(j * tileWidth, i * tileLength));
+						break;
+					case 43:
+						entities.add(new Puente(j * tileWidth, i * tileLength));
+						break;
+					case 44:
+						entities.add(new ParedLadrillo(j * tileWidth, i * tileLength));
+						break;
+					case 45:
+						entities.add(new CespedMuro6(j * tileWidth, i * tileLength));
+						break;
+					case 46:
+						entities.add(new ParedLadrillo2(j * tileWidth, i * tileLength));
+						break;
+					case 47:
+						entities.add(new ParedLadrillo3(j * tileWidth, i * tileLength));
+						break;
+					
+					
+					
 				}
 			}
 		}
