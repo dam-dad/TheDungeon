@@ -1,6 +1,5 @@
 package dad.game.engine;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +10,6 @@ import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
 
@@ -33,9 +31,8 @@ public class Game extends AnimationTimer {
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
 
-    private int width = 100;
-    private int height = 100;
-    Weapon sword = new Weapon("Espada", 10, width, height);
+
+    Weapon sword = new Weapon("Espada", 10, 40, 40);
 
 
     //  private List<Entity> objects;
@@ -70,7 +67,7 @@ public class Game extends AnimationTimer {
 
 
         //Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
-        Enemy enemy = new Enemy(1000,25,0,200.0, 200.0, 30, player);
+        Enemy enemy = new Enemy(100,25,0,200.0, 200.0, 30, player);
         this.entities.add(enemy);
         //Comentar hasta aquí
 
@@ -147,7 +144,7 @@ public class Game extends AnimationTimer {
 
     private void useSword() {
         // Crear una instancia de la espada
-        Weapon sword = new Weapon("Espada", 10, width, height); // Utiliza los valores adecuados para width y height
+        Weapon sword = new Weapon("Espada", 10, 40, 40); // Utiliza los valores adecuados para width y height
 
         // Realizar el ataque con la espada
         for (Entity entity : entities) {
@@ -215,10 +212,18 @@ public class Game extends AnimationTimer {
 
 
 
-    // pinta todo
+    // pinta t-odo
     private void render() {
         entities.forEach(entity -> entity.render(graphicsContext));
         player.render(graphicsContext);
+
+        double offsetX = 20; // Ajusta este valor según sea necesario
+        double offsetY = 10; // Ajusta este valor según sea necesario
+
+        double swordX = player.getPosX() + offsetX; // Calcula la posición X de la espada basada en la posición del jugador
+        double swordY = player.getPosY() + offsetY; // Calcula la posición Y de la espada basada en la posición del jugador
+
+        sword.render(graphicsContext, swordX, swordY);
     }
 
 

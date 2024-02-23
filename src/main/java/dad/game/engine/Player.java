@@ -16,7 +16,6 @@ import dad.game.combate.Character;
 
 public class Player extends Character {
 
-    private static final double ATTACK_RANGE = 1000.0;
     private Weapon equippedWeapon;
 
     List<Enemy> allEnemies = new ArrayList<>();
