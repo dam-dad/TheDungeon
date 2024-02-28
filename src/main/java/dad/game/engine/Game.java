@@ -30,6 +30,9 @@ public class Game extends AnimationTimer {
     private Set<KeyCode> input = new HashSet<>();
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
+    private boolean nextMap3 = false;
+    private boolean nextMap4 = false;
+    private boolean nextMap5 = false;
 
 
     Weapon sword = new Weapon("Espada", 10, 40, 40);
@@ -108,6 +111,25 @@ public class Game extends AnimationTimer {
             player.posY = 0;
             nextMap2 = false;
             System.out.println("Changed to Map 1");
+        }else if (nextMap3) {
+            System.out.println("Changing to Map 2...");
+            this.entities = Tile.loadTile(Tile.tileMap3);
+            player.posY = 0;
+            nextMap3 = false;
+            System.out.println("Changed to Map 3");
+        }else if (nextMap4) {
+            System.out.println("Changing to Map 3...");
+            this.entities = Tile.loadTile(Tile.tileMap4);
+            player.posY = 0;
+            nextMap4 = false;
+            System.out.println("Changed to Map 4");
+        }
+        else if (nextMap5) {
+            System.out.println("Changing to Map 4...");
+            this.entities = Tile.loadTile(Tile.tileMap5);
+            player.posY = 0;
+            nextMap5 = false;
+            System.out.println("Changed to Map 5");
         }
 
         entities.forEach(entity -> {
