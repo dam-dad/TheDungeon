@@ -18,10 +18,10 @@ public class Tile {
 			{ 12, 12, 12, 7, 26, 26, 26, 26, 26, 26, 26, 26, 26, 36, 39 },
 			{ 16, 16, 14, 8, 26, 26, 26, 26, 26, 30, 31, 31, 32, 26, 18 },
 			{ 38, 26, 6, 8, 36, 26, 26, 26, 26, 29, 27, 27, 33, 26, 18 },
-			{ 24, 36, 6, 15, 7, 26, 26, 26, 26, 29, 27, 27, 33, 26, 18 },
-			{ 24, 26, 10, 14, 8, 26, 36, 26, 26, 28, 35, 35, 34, 26, 18 },
-			{ 24, 26, 26, 6, 8, 26, 26, 26, 26, 26, 26, 26, 26, 26, 18 },
-			{ 23, 19, 38, 6, 8, 39, 19, 19, 19, 19, 19, 19, 19, 19, 22 },
+			{ 41, 36, 6, 15, 7, 26, 26, 26, 26, 29, 27, 27, 33, 26, 18 },
+			{ 25, 26, 10, 14, 8, 26, 36, 26, 26, 28, 35, 35, 34, 26, 18 },
+			{ 25, 26, 26, 6, 8, 26, 26, 26, 26, 26, 26, 26, 26, 26, 18 },
+			{ 19, 19, 38, 6, 8, 39, 19, 19, 19, 19, 19, 19, 19, 19, 22 },
 	};
 
 	public static int[][] tileMap2 = {
@@ -38,17 +38,44 @@ public class Tile {
 	};
 
 	public static int[][] tileMap3 = {
-			{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
-			{ 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 },
-			{ 23, 2, 2, 2, 2, 2, 5, 5, 2, 2, 2, 2, 2, 2, 2 },
+			{ 20, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 21 },
+			{ 24, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 18 },
+			{ 24, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 18 },
+			{ 24, 49, 49, 49, 49, 9, 12, 12, 12, 7, 35, 35, 35, 35, 40 },
+			{ 24, 49, 49, 49, 49, 6, 48, 48, 48, 8, 27, 27, 27, 27, 25 },
+			{ 24, 49, 49, 49, 49, 6, 48, 48, 48, 8, 27, 27, 27, 27, 25 },
+			{ 24, 49, 49, 49, 49, 10, 16, 16, 16, 11, 31, 31, 31, 31, 39 },
+			{ 24, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 18 },
+			{ 24, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 18 },
+			{ 23, 19, 19, 19, 19, 38, 25, 25, 39, 19, 19, 19, 19, 19, 22 },
 	};
+	
+	public static int[][] tileMap4 = {
+			{ 20, 17, 17, 17, 17, 41, 25, 25, 40, 17, 17, 17, 17, 17, 21 },
+			{ 24, 26, 26, 26, 26, 26, 36, 26, 26, 26, 26, 26, 26, 26, 18 },
+			{ 24, 26, 36, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 40 },
+			{ 24, 9, 12, 12, 12, 12, 7, 26, 26, 36, 9, 12, 12, 12, 12 },
+			{ 24, 6, 50,16, 16, 14, 8, 26, 26, 26, 6, 50, 16, 16, 16 },
+			{ 24, 6, 8, 39,38, 6, 8, 36, 26, 26, 43, 43, 26, 26, 39 },
+			{ 24, 6, 8, 40, 41, 6, 8, 26, 26, 26, 43, 43, 26, 26, 40 },
+			{ 24, 6, 15, 12, 12, 51, 15, 12, 12, 12, 51, 8, 26, 26, 25 },
+			{ 24, 10, 16, 16, 16, 16, 16, 16, 16, 16, 16, 11, 26, 26, 25 },
+			{ 23, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19 },
+	};
+	
+	public static int[][] tileMap5 = {
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 61, 56, 56, 56, 56, 56, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 26, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 26, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 61, 43, 43, 57, 56, 56, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 61, 55, 55, 76, 56, 56, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 76, 55, 43, 57, 56, 56, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 61, 55, 43, 57, 56, 56, 56 },
+			{ 56, 56, 56, 56, 56, 56, 56, 56, 61, 43, 43, 57, 56, 56, 56 },
+	};
+
 
 	private static double tileLength = 48;
 	private static double tileWidth = 48;
@@ -217,7 +244,91 @@ public class Tile {
 					case 47:
 						entities.add(new ParedLadrillo3(j * tileWidth, i * tileLength));
 						break;
-					
+					case 48:
+						entities.add(new Rio12(j * tileWidth, i * tileLength));
+						break;
+					case 49:
+						entities.add(new Cespedflor(j * tileWidth, i * tileLength));
+						break;
+					case 50:
+						entities.add(new Rio13(j * tileWidth, i * tileLength));
+						break;
+					case 51:
+						entities.add(new Rio14(j * tileWidth, i * tileLength));
+						break;
+					case 52:
+						entities.add(new Suelo(j * tileWidth, i * tileLength));
+						break;
+					case 53:
+						entities.add(new Suelo2(j * tileWidth, i * tileLength));
+						break;
+					case 54:
+						entities.add(new Suelo3(j * tileWidth, i * tileLength));
+						break;
+					case 55:
+						entities.add(new Suelo4(j * tileWidth, i * tileLength));
+						break;
+					case 56:
+						entities.add(new Negro(j * tileWidth, i * tileLength));
+						break;
+					case 57:
+						entities.add(new ParedLadrillo4(j * tileWidth, i * tileLength));
+						break;
+					case 58:
+						entities.add(new ParedLadrillo5(j * tileWidth, i * tileLength));
+						break;
+					case 59:
+						entities.add(new ParedLadrillo6(j * tileWidth, i * tileLength));
+						break;
+					case 60:
+						entities.add(new ParedLadrillo7(j * tileWidth, i * tileLength));
+						break;
+					case 61:
+						entities.add(new ParedLadrillo8(j * tileWidth, i * tileLength));
+						break;
+					case 63:
+						entities.add(new Agua(j * tileWidth, i * tileLength));
+						break;
+					case 64:
+						entities.add(new Agua2(j * tileWidth, i * tileLength));
+						break;
+					case 65:
+						entities.add(new Agua3(j * tileWidth, i * tileLength));
+						break;
+					case 66:
+						entities.add(new Agua4(j * tileWidth, i * tileLength));
+						break;
+					case 67:
+						entities.add(new Agua5(j * tileWidth, i * tileLength));
+						break;
+					case 68:
+						entities.add(new Agua6(j * tileWidth, i * tileLength));
+						break;
+					case 69:
+						entities.add(new Agua7(j * tileWidth, i * tileLength));
+						break;
+					case 70:
+						entities.add(new Agua8(j * tileWidth, i * tileLength));
+						break;
+					case 71:
+						entities.add(new Agua9(j * tileWidth, i * tileLength));
+						break;
+					case 72:
+						entities.add(new Agua10(j * tileWidth, i * tileLength));
+						break;
+					case 73:
+						entities.add(new Agua11(j * tileWidth, i * tileLength));
+						break;
+					case 74:
+						entities.add(new Agua12(j * tileWidth, i * tileLength));
+						break;
+					case 75:
+						entities.add(new Agua13(j * tileWidth, i * tileLength));
+						break;
+					case 76:
+						entities.add(new ParedLadrillo10(j * tileWidth, i * tileLength));
+						break;
+
 					
 					
 				}
