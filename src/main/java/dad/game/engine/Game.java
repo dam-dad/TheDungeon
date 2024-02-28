@@ -186,6 +186,10 @@ public class Game extends AnimationTimer {
                     nextMap1 = true;
                 } else if (entity instanceof Map2Transition) {
                     nextMap2 = true;
+                }else if (entity instanceof Map3Transition) {
+                    nextMap3 = true;
+                }else if (entity instanceof Map4Transition) {
+                    nextMap4 = true;
                 }
                 player.move(null);
             }

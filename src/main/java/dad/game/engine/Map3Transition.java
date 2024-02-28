@@ -7,7 +7,7 @@ import javafx.scene.shape.Shape;
 public class Map3Transition extends StaticEntity {
 
     public Map3Transition(double x, double y) {
-        super(new Image("Ruta imagen de la textura"), x, y);
+        super(new Image("/images/CespedDesga.png"), x, y);
     }
 
 
