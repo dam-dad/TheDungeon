@@ -112,9 +112,11 @@ public class Game extends AnimationTimer {
             nextMap2 = false;
             System.out.println("Changed to Map 1");
         }else if (nextMap3) {
-            System.out.println("Changing to Map 2...");
+            System.out.println("Changing to Map 3...");
             this.entities = Tile.loadTile(Tile.tileMap3);
-            player.posY = 0;
+            player.posX = 13 * Tile.getTileWidth(); // Columna 14 (índice 13), cada tile tiene 48px de ancho
+            player.posY = 4 * Tile.getTileLength(); // Fila 5 (índice 4), cada tile tiene 48px de alto
+
             nextMap3 = false;
             System.out.println("Changed to Map 3");
         }else if (nextMap4) {
