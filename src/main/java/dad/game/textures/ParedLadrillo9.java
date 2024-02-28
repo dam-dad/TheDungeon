@@ -1,6 +1,7 @@
 package dad.game.textures;
 
 import dad.game.engine.StaticEntity;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Shape;
 
@@ -11,8 +12,11 @@ public class ParedLadrillo9 extends StaticEntity {
 	}
 
 	@Override
-	public Shape getCollisionShape() {
-		return null;
+	public void render(GraphicsContext gc) {
+		super.render(gc);
+
+
+
 	}
 	
 }
