@@ -31,6 +31,7 @@ public class Game extends AnimationTimer {
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
     private boolean nextMap3 = false;
+    private boolean nextMap3_2 = false;
     private boolean nextMap4 = false;
     private boolean nextMap5 = false;
 
@@ -119,6 +120,14 @@ public class Game extends AnimationTimer {
 
             nextMap3 = false;
             System.out.println("Changed to Map 3");
+        }else if (nextMap3_2) {
+            System.out.println("Changing to Map 2...");
+            this.entities = Tile.loadTile(Tile.tileMap2);
+            player.posX = 2; // La columna 1 en índices de programación es 0, y su posición en píxeles también es 0
+            player.posY = 4 * Tile.getTileLength(); // La fila 5 en índices de programación es 4, y su posición en píxeles es 192
+
+            nextMap3_2 = false;
+            System.out.println("Changed to Map 2");
         }else if (nextMap4) {
             System.out.println("Changing to Map 3...");
             this.entities = Tile.loadTile(Tile.tileMap4);
@@ -190,6 +199,8 @@ public class Game extends AnimationTimer {
                     nextMap2 = true;
                 }else if (entity instanceof Map3Transition) {
                     nextMap3 = true;
+                }else if (entity instanceof Map3TransitionBack) {
+                    nextMap3_2 = true;
                 }else if (entity instanceof Map4Transition) {
                     nextMap4 = true;
                 }
