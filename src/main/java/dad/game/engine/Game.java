@@ -124,7 +124,7 @@ public class Game extends AnimationTimer {
         }else if (nextMap3_2) {
             System.out.println("Changing to Map 2...");
             this.entities = Tile.loadTile(Tile.tileMap2);
-            player.posX = 1 * Tile.getTileWidth();; // La columna 2
+            player.posX = 1 * Tile.getTileWidth(); // La columna 2
             player.posY = 4 * Tile.getTileLength(); // La fila 5
 
             nextMap3_2 = false;
@@ -132,13 +132,15 @@ public class Game extends AnimationTimer {
         }else if (nextMap4) {
             System.out.println("Changing to Map 4...");
             this.entities = Tile.loadTile(Tile.tileMap4);
-            player.posY = 0;
+            player.posX = 6 * Tile.getTileWidth(); // Para el número 36
+            player.posY = 1 * Tile.getTileLength(); // Segunda fila
             nextMap4 = false;
             System.out.println("Changed to Map 4");
         }else if (nextMap4_back) {
             System.out.println("Changing to Map 3...");
             this.entities = Tile.loadTile(Tile.tileMap3);
-            player.posY = 0;
+            player.posX = 6 * Tile.getTileWidth(); // Para el primer número 49 encima del 84
+            player.posY = 8 * Tile.getTileLength(); // Novena fila
             nextMap4_back = false;
             System.out.println("Changed to Map 3");
         }
