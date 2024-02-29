@@ -123,8 +123,8 @@ public class Game extends AnimationTimer {
         }else if (nextMap3_2) {
             System.out.println("Changing to Map 2...");
             this.entities = Tile.loadTile(Tile.tileMap2);
-            player.posX = 2; // La columna 1 en índices de programación es 0, y su posición en píxeles también es 0
-            player.posY = 4 * Tile.getTileLength(); // La fila 5 en índices de programación es 4, y su posición en píxeles es 192
+            player.posX = 1 * Tile.getTileWidth();; // La columna 2
+            player.posY = 4 * Tile.getTileLength(); // La fila 5
 
             nextMap3_2 = false;
             System.out.println("Changed to Map 2");
