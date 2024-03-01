@@ -1,5 +1,6 @@
 package dad.game.engine;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,6 +29,9 @@ public class Game extends AnimationTimer {
     private GraphicsContext graphicsContext;
     private Player player;
     private List<Entity> entities;
+
+    private int enemigosDerrotados = 0;
+
 
     // Input
     private Set<KeyCode> input = new HashSet<>();
@@ -165,11 +169,21 @@ public class Game extends AnimationTimer {
             System.out.println("Changed to Map 5");
         }
 
+        // Actualización de los enemigos y posible eliminación si están derrotados
+        List<Entity> toRemove = new ArrayList<>();
         entities.forEach(entity -> {
             if (entity instanceof Enemy) {
-                ((Enemy) entity).update(timeDifference);
+                Enemy enemy = (Enemy) entity;
+                enemy.update(timeDifference);
+                if (enemy.isDefeated()) {
+                    toRemove.add(enemy);
+                    enemigosDerrotados++; // Incrementa el contador por cada enemigo derrotado
+                    System.out.println("Enemigo derrotado. Total ahora: " + enemigosDerrotados);
+                }
             }
         });
+
+        entities.removeAll(toRemove);
 
         entities.removeIf(entity -> entity instanceof Enemy && ((Enemy) entity).isDefeated());
        // listEnemys.getAllEnemies().removeIf(Enemy::isDefeated);
