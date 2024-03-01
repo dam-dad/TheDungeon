@@ -1,7 +1,5 @@
 package dad.game.combate;
 
-import dad.game.ui.Enemy;
-
 import java.util.ArrayList;
 import java.util.List;
 

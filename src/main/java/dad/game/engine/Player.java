@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import dad.game.combate.Weapon;
-import dad.game.ui.Enemy;
+import dad.game.combate.Enemy;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import dad.game.combate.Character;

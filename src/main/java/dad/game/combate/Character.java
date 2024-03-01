@@ -2,8 +2,6 @@ package dad.game.combate;
 
 import dad.game.engine.DistanceCalculator;
 import dad.game.engine.Entity;
-import dad.game.engine.Player;
-import dad.game.ui.Enemy;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.shape.Shape;

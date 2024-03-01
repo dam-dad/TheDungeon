@@ -1,6 +1,5 @@
-package dad.game.ui;
+package dad.game.combate;
 
-import dad.game.combate.Character;
 import dad.game.engine.Animation;
 import dad.game.engine.Direction;
 import dad.game.engine.Player;

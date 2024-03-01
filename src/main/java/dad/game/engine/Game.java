@@ -6,7 +6,7 @@ import java.util.Set;
 
 import dad.game.combate.Weapon;
 import dad.game.transiciones.*;
-import dad.game.ui.Enemy;
+import dad.game.combate.Enemy;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
