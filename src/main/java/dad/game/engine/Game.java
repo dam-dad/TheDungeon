@@ -127,6 +127,7 @@ public class Game extends AnimationTimer {
             this.entities = Tile.loadTile(Tile.tileMap3);
             player.posX = 13 * Tile.getTileWidth(); // Columna 14 (índice 13), cada tile tiene 48px de ancho
             player.posY = 4 * Tile.getTileLength(); // Fila 5 (índice 4), cada tile tiene 48px de alto
+            spawnEnemy(100.0, 100.0); // Ejemplo de posición. Ajusta según la lógica del mapa
 
             nextMap3 = false;
             System.out.println("Changed to Map 3");
@@ -135,6 +136,9 @@ public class Game extends AnimationTimer {
             this.entities = Tile.loadTile(Tile.tileMap2);
             player.posX = 1 * Tile.getTileWidth(); // La columna 2
             player.posY = 4 * Tile.getTileLength(); // La fila 5
+
+            spawnEnemy(100.0, 100.0); // Ejemplo de posición. Ajusta según la lógica del mapa
+
 
             nextMap3_2 = false;
             System.out.println("Changed to Map 2");
@@ -285,6 +289,10 @@ public class Game extends AnimationTimer {
         sword.render(graphicsContext, swordX, swordY);
     }
 
+    private void spawnEnemy(double posX, double posY) {
+        Enemy enemy = new Enemy(100, 25, 0, posX, posY, 30, player);
+        this.entities.add(enemy);
+    }
 
 
 
