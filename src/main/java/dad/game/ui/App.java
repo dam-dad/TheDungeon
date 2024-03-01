@@ -12,6 +12,10 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * Clase APP que se encarga de iniciar la aplicacion
+ * @author Javier Pérez
+ */
 public class App extends Application {
 
     private static MusicThread music;

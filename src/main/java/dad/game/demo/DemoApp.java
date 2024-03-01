@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//TODO borrar antes de presentarlo
 public class DemoApp extends Application {
 	
 	public static Stage primaryStage;

@@ -13,6 +13,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *Clase enemy que genera nuestro primer enemigo
+ * @author Javier Pérez
+ */
 public class Enemy extends Character {
 
     private double speed;

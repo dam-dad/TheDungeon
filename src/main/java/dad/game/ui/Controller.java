@@ -15,6 +15,10 @@ import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 
+/**
+ * Clase que controla el menu
+ * @author Javier Pérez
+ */
 
 public class Controller implements Initializable {
 

@@ -2,6 +2,9 @@ package dad.game.engine;
 
 import javafx.geometry.Point2D;
 
+/**
+ * Clase que calcula la Dirección de un punto respecto a otro
+ */
 public class DistanceCalculator {
 
     private Point2D referencePoint;

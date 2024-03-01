@@ -11,6 +11,11 @@ import javafx.scene.shape.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Clase Character que representa a un personaje en el juego. hereda de Entity
+ */
+
 public class Character extends Entity {
 
     private static final double ATTACK_RANGE = 10.0;

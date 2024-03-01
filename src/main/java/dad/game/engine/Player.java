@@ -13,7 +13,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import dad.game.combate.Character;
 
-
+/**
+ * Clase del Personaje principal del juego
+ */
 public class Player extends Character {
 
     private Weapon equippedWeapon;

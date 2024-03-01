@@ -4,6 +4,9 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+/**
+ * Clase que genera un objeto de transicion que visualmente es igual a un tile de suelo
+ */
 public class Map5Transition extends StaticEntity {
 
     public Map5Transition(double x, double y) {

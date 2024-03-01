@@ -5,6 +5,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Clase Weapon que crea las armas del juego
+ * @author Javier Pérez
+ */
 public class Weapon {
 
     private int damage;
