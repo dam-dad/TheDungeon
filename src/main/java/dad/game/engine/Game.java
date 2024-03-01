@@ -20,15 +20,19 @@ import javafx.scene.input.KeyCode;
  */
 public class Game extends AnimationTimer {
 
+    // Tiempo
     private long time;
     private long timeDifference;
 
+    // Context
     private GraphicsContext graphicsContext;
-
     private Player player;
     private List<Entity> entities;
 
+    // Input
     private Set<KeyCode> input = new HashSet<>();
+
+    // Flags para controlar el cambio de mapas
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
     private boolean nextMap3 = false;
@@ -37,7 +41,7 @@ public class Game extends AnimationTimer {
     private boolean nextMap4_back = false;
     private boolean nextMap5 = false;
 
-
+    //Creacion de la espada
     Weapon sword = new Weapon("Espada", 10, 40, 40);
 
 
@@ -98,6 +102,10 @@ public class Game extends AnimationTimer {
         time = currentNanoTime;
     }
 
+    /**
+     * Actualiza las entidades del juego
+     *
+     */
     private void update() {
         player.update(timeDifference);
 
