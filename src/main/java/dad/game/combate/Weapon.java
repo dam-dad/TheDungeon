@@ -1,6 +1,7 @@
 package dad.game.combate;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -13,6 +14,7 @@ public class Weapon {
     private int damage;
     private String name;
     private Rectangle hitbox;
+    private Image weaponImage;
 
 
 
@@ -20,10 +22,12 @@ public class Weapon {
         return damage;
     }
 
-    public Weapon(String name, int damage, int width, int height) {
+    public Weapon(String name, int damage, int width, int height, String imagePath) {
         this.name = name;
         this.damage = damage;
         this.hitbox = new Rectangle(width, height);
+        this.weaponImage = new Image(imagePath); // Cargar la imagen del asset
+
     }
 
     public Rectangle getHitbox() {
@@ -37,8 +41,13 @@ public class Weapon {
     }
 
     public void render(GraphicsContext gc, double x, double y) {
-        gc.setStroke(Color.RED);
-        gc.strokeRect(x, y, hitbox.getWidth(), hitbox.getHeight());
+        if (weaponImage != null) {
+            gc.drawImage(weaponImage, x, y);
+        } else {
+            // Dibuja la hitbox si no hay imagen
+            gc.setStroke(Color.RED);
+            gc.strokeRect(x, y, hitbox.getWidth(), hitbox.getHeight());
+        }
     }
 
 

@@ -42,7 +42,7 @@ public class Game extends AnimationTimer {
     private boolean nextMap5 = false;
 
     //Creacion de la espada
-    Weapon sword = new Weapon("Espada", 10, 40, 40);
+    Weapon sword = new Weapon("Espada", 10, 40, 40, "/images/espada.png");
 
 
     //  private List<Entity> objects;
@@ -195,7 +195,7 @@ public class Game extends AnimationTimer {
 
     private void useSword() {
         // Crear una instancia de la espada
-        Weapon sword = new Weapon("Espada", 10, 40, 40); // Utiliza los valores adecuados para width y height
+        Weapon sword = new Weapon("Espada", 10, 40, 40,"images/espada.png"); // Utiliza los valores adecuados para width y height
 
         // Realizar el ataque con la espada
         for (Entity entity : entities) {
