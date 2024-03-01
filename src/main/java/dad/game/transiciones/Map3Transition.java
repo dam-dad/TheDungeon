@@ -1,5 +1,6 @@
-package dad.game.engine;
+package dad.game.transiciones;
 
+import dad.game.engine.StaticEntity;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;

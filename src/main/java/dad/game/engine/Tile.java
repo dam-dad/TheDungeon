@@ -1,6 +1,7 @@
 package dad.game.engine;
 
 import dad.game.textures.*;
+import dad.game.transiciones.*;
 
 import java.util.ArrayList;
 import java.util.List;
