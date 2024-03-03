@@ -68,15 +68,7 @@
                   </Button>
                </children>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="THE DUNGEON" textAlignment="CENTER">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" />
             <HBox alignment="CENTER" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="hechoPorLabel" alignment="CENTER" text="Javier Pérez, Jarod Peña, Joel Gómez" textAlignment="CENTER">
