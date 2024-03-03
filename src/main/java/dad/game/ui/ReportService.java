@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dad.pokemonfx.batalla.Pokemon;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -17,8 +16,8 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 
-  
-    public class ReportService {
+
+public class ReportService {
 
     	public static final String JRXML_FILE = "/reports/HighScore.jrxml";
     	public static final String PDF_FILE = "Score.pdf";
@@ -28,7 +27,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
     		/**
     		 * Compilamos el informe
     		 */
-    		JasperReport report = JasperCompileManager.compileReport(GenerarPDF.class.getResourceAsStream(JRXML_FILE));
+    		JasperReport report = JasperCompileManager.compileReport(ReportService.class.getResourceAsStream(JRXML_FILE));
 
     		/**
     		 * Mapeamos los parametros para el informe
@@ -52,4 +51,5 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
     		Desktop.getDesktop().open(new File(PDF_FILE));
     	}
 
-    }
+
+}

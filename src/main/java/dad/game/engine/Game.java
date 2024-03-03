@@ -310,7 +310,7 @@ public class Game extends AnimationTimer {
         Enemy enemy = new Enemy(100, 25, 0, posX, posY, 30, player);
         this.entities.add(enemy);
     }
-
+/*
     public void onGameEnd() {
         List<Puntuacion> puntuaciones = new ArrayList<>();
         // Aquí asumimos que tienes acceso a los datos del jugador al final del juego
@@ -319,7 +319,7 @@ public class Game extends AnimationTimer {
         ReportService generator = new ReportService();
         generator.generarInformeHighscore(puntuaciones);
     }
-
+*/
 
 
 }
