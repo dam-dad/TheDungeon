@@ -1,5 +1,6 @@
 package dad.game.engine;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,6 +16,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
+import net.sf.jasperreports.engine.JRException;
 
 
 /**
@@ -310,16 +312,17 @@ public class Game extends AnimationTimer {
         Enemy enemy = new Enemy(100, 25, 0, posX, posY, 30, player);
         this.entities.add(enemy);
     }
-/*
-    public void onGameEnd() {
+
+    public void onGameEnd() throws JRException, IOException {
         List<Puntuacion> puntuaciones = new ArrayList<>();
         // Aquí asumimos que tienes acceso a los datos del jugador al final del juego
-        puntuaciones.add(new Puntuacion("Nombre del Jugador", enemigosDerrotados));
+        puntuaciones.add(new Puntuacion("Jugador Nuevo", enemigosDerrotados));
 
         ReportService generator = new ReportService();
-        generator.generarInformeHighscore(puntuaciones);
+        ReportService.generarPdf(puntuaciones);
+
     }
-*/
+
 
 
 }

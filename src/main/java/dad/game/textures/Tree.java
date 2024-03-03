@@ -11,7 +11,6 @@ import javafx.scene.shape.Rectangle;
  */
 public class Tree extends StaticEntity {
 
-	//TODO cambiar la textura sin que crashee el programa
 	public Tree(double x, double y) {
 		super(new Image("/images/Wall21.png"), x, y);
 	}
