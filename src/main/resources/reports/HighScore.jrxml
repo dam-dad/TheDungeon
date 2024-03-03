@@ -27,35 +27,32 @@
 	<columnHeader>
 		<band height="73" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="278" height="30" uuid="f0242c7f-b31f-404d-8840-505f60e9b248">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4d206beb-c065-4571-83fa-5b70607ed297"/>
-				</reportElement>
+				<reportElement x="0" y="30" width="278" height="30" uuid="f0242c7f-b31f-404d-8840-505f60e9b248"/>
 				<textElement verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="278" y="0" width="277" height="30" uuid="07e1ee8c-7225-45de-a9a0-563545d1cbca">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f4ad6383-5277-44a2-8b94-3119d71b0ca7"/>
-				</reportElement>
+				<reportElement x="280" y="30" width="277" height="30" uuid="07e1ee8c-7225-45de-a9a0-563545d1cbca"/>
 				<textElement verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Enemigos Derrotados:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="0" y="30" width="278" height="30" uuid="d24da1b0-0d15-4b4e-86f6-6615959b7661"/>
-				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="278" y="30" width="277" height="30" uuid="e70354b3-f507-4c29-9be2-54ca1de32e5b"/>
-				<textFieldExpression><![CDATA[$F{enemigosDerrotados}]]></textFieldExpression>
-			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="278" height="20" uuid="d24da1b0-0d15-4b4e-86f6-6615959b7661"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="0" width="277" height="20" uuid="e70354b3-f507-4c29-9be2-54ca1de32e5b"/>
+				<textFieldExpression><![CDATA[$F{enemigosDerrotados}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>

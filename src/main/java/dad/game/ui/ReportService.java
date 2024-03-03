@@ -51,7 +51,7 @@ public class ReportService {
         List<Puntuacion> lista = new ArrayList<>();
         lista.add(new Puntuacion("Javier", 10));
         lista.add(new Puntuacion("Luis", 15));
-        lista.add(new Puntuacion("Jugador3", 20));
+        lista.add(new Puntuacion("Pedro", 20));
 
         try {
             ReportService.generarPdf(lista);
