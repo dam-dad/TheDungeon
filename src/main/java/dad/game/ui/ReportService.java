@@ -20,8 +20,8 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
   
     public class ReportService {
 
-    	public static final String JRXML_FILE = "/reports/Pokemon.jrxml";
-    	public static final String PDF_FILE = "ListaPokemon.pdf";
+    	public static final String JRXML_FILE = "/reports/HighScore.jrxml";
+    	public static final String PDF_FILE = "Score.pdf";
 
     	public static void generarPdf(List<Puntuacion> lista) throws JRException, IOException {
 
