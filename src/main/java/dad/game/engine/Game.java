@@ -8,6 +8,8 @@ import java.util.Set;
 import dad.game.combate.Weapon;
 import dad.game.transiciones.*;
 import dad.game.combate.Enemy;
+import dad.game.ui.Puntuacion;
+import dad.game.ui.ReportService;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -31,6 +33,7 @@ public class Game extends AnimationTimer {
     private List<Entity> entities;
 
     private int enemigosDerrotados = 0;
+    String nombreusuario = "Usuario 1";
 
 
     // Input
@@ -306,6 +309,15 @@ public class Game extends AnimationTimer {
     private void spawnEnemy(double posX, double posY) {
         Enemy enemy = new Enemy(100, 25, 0, posX, posY, 30, player);
         this.entities.add(enemy);
+    }
+
+    public void onGameEnd() {
+        List<Puntuacion> puntuaciones = new ArrayList<>();
+        // Aquí asumimos que tienes acceso a los datos del jugador al final del juego
+        puntuaciones.add(new Puntuacion("Nombre del Jugador", enemigosDerrotados));
+
+        ReportService generator = new ReportService();
+        generator.generarInformeHighscore(puntuaciones);
     }
 
 
