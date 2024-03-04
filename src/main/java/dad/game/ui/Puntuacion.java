@@ -4,10 +4,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 
-
 public class Puntuacion {
-    private StringProperty nombre = new SimpleStringProperty();
-    private StringProperty enemigosDerrotados = new SimpleStringProperty();
+    private final StringProperty nombre = new SimpleStringProperty();
+    private final StringProperty enemigosDerrotados = new SimpleStringProperty();
 
     // Constructor
     public Puntuacion(String nombre, int enemigosDerrotados) {

@@ -1,6 +1,5 @@
 package dad.game.music;
 
-import javafx.animation.Transition;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -9,7 +8,7 @@ import java.net.URL;
 
 public class MusicThread extends Thread {
 
-    private String file;
+    private final String file;
     private MediaPlayer player;
 
     public MusicThread(String file) {

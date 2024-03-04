@@ -1,66 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HighScore" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3b61bdd-3f41-40b9-ab51-249dc2554218">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Puntuacion"/>
-	<queryString>
-		<![CDATA[]]>
-	</queryString>
-	<field name="nombre" class="java.lang.String"/>
-	<field name="enemigosDerrotados" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="0" width="555" height="79" uuid="e9c98c67-2d1e-453d-b5d6-6385e90964e7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="33"/>
-				</textElement>
-				<text><![CDATA[High-Score]]></text>
-			</staticText>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="73" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="30" width="278" height="30" uuid="f0242c7f-b31f-404d-8840-505f60e9b248"/>
-				<textElement verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Nombre:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="280" y="30" width="277" height="30" uuid="07e1ee8c-7225-45de-a9a0-563545d1cbca"/>
-				<textElement verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Enemigos Derrotados:]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="0" y="0" width="278" height="20" uuid="d24da1b0-0d15-4b4e-86f6-6615959b7661"/>
-				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="278" y="0" width="277" height="20" uuid="e70354b3-f507-4c29-9be2-54ca1de32e5b"/>
-				<textFieldExpression><![CDATA[$F{enemigosDerrotados}]]></textFieldExpression>
-			</textField>
-		</band>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="HighScore" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="d3b61bdd-3f41-40b9-ab51-249dc2554218">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Puntuacion"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="enemigosDerrotados" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="555" height="79" uuid="e9c98c67-2d1e-453d-b5d6-6385e90964e7"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="33"/>
+                </textElement>
+                <text><![CDATA[High-Score]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="35" splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="73" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="30" width="278" height="30" uuid="f0242c7f-b31f-404d-8840-505f60e9b248"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nombre:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="280" y="30" width="277" height="30" uuid="07e1ee8c-7225-45de-a9a0-563545d1cbca"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Enemigos Derrotados:]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="278" height="20" uuid="d24da1b0-0d15-4b4e-86f6-6615959b7661"/>
+                <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="278" y="0" width="277" height="20" uuid="e70354b3-f507-4c29-9be2-54ca1de32e5b"/>
+                <textFieldExpression><![CDATA[$F{enemigosDerrotados}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
 </jasperReport>

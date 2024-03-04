@@ -13,19 +13,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *Clase enemy que genera nuestro primer enemigo
+ * Clase enemy que genera nuestro primer enemigo
+ *
  * @author Javier Pérez
  */
 public class Enemy extends Character {
 
-    private double speed;
-    private Player player;
-    private Map<Direction, Animation> animations;
+    private final double speed;
+    private final Player player;
+    private final Map<Direction, Animation> animations;
 
     private Direction actions;
 
     //todo eliminar listEnemys
-    public Enemy( int health, int attackDamage, int defense,double initialPosX, double initialPosY, double speed, Player player) {
+    public Enemy(int health, int attackDamage, int defense, double initialPosX, double initialPosY, double speed, Player player) {
         super(health, attackDamage, defense);
 
 

@@ -1,29 +1,23 @@
 package dad.game.engine;
 
+import dad.game.combate.Character;
+import dad.game.combate.Enemy;
+import dad.game.combate.Weapon;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import dad.game.combate.Weapon;
-import dad.game.combate.Enemy;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
-import dad.game.combate.Character;
 
 /**
  * Clase del Personaje principal del juego
  */
 public class Player extends Character {
 
-    private Weapon equippedWeapon;
-
-    List<Enemy> allEnemies = new ArrayList<>();
-
-
     private static final long ANIMATION_SPEED = 125000;
-
     @SuppressWarnings("serial")
     private final Map<Direction, Animation> idle = new HashMap<>() {{
         put(Direction.NORTH, new Animation("/images/SpriteUp.png"));
@@ -31,7 +25,6 @@ public class Player extends Character {
         put(Direction.EAST, new Animation("/images/SpriteLeft.png"));
         put(Direction.WEST, new Animation("/images/SpriteRight.png"));
     }};
-
     @SuppressWarnings("serial")
     private final Map<Direction, Animation> walk = new HashMap<>() {{
         put(Direction.NORTH, new Animation(ANIMATION_SPEED, "/images/SpriteWalkUp1.png", "/images/SpriteUp.png", "/images/SpriteWalkUp2.png", "/images/SpriteUp.png"));
@@ -39,9 +32,10 @@ public class Player extends Character {
         put(Direction.EAST, new Animation(ANIMATION_SPEED, "/images/SpriteWalkLeft1.png", "/images/SpriteLeft.png", "/images/SpriteWalkLeft1.png", "/images/SpriteLeft.png"));
         put(Direction.WEST, new Animation(ANIMATION_SPEED, "/images/SpriteWalkRight1.png", "/images/SpriteRight.png", "/images/SpriteWalkRight1.png", "/images/SpriteRight.png"));
     }};
-
     public double xSpeed;
     public double ySpeed;
+    List<Enemy> allEnemies = new ArrayList<>();
+    private Weapon equippedWeapon;
     private boolean isWalking = false;
     private Direction direction;
     private Animation animation;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListEnemys {
-    private List<Enemy> allEnemies = new ArrayList<>();
+    private final List<Enemy> allEnemies = new ArrayList<>();
 
     public void addEnemy(Enemy enemy) {
         allEnemies.add(enemy);
@@ -17,7 +17,6 @@ public class ListEnemys {
     public List<Enemy> getAllEnemies() {
         return allEnemies;
     }
-
 
 
     // Otros métodos y atributos del juego...

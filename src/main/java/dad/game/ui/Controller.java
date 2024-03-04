@@ -1,6 +1,7 @@
 package dad.game.ui;
 
 import dad.game.demo.GameController;
+import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,23 +14,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
-
 /**
  * Clase que controla el menu
+ *
  * @author Javier Pérez
  */
 
 public class Controller implements Initializable {
 
-    private MenuController menuController;
-    private GameController gameController;
-
-
     Media media;
     MediaPlayer mediaPlayer;
-
-
+    private MenuController menuController;
+    private GameController gameController;
     @FXML
     private BorderPane view;
 

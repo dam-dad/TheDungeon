@@ -17,12 +17,10 @@ import java.util.List;
 public class Character extends Entity {
 
     private static final double ATTACK_RANGE = 10.0;
-    private DistanceCalculator calculator = new DistanceCalculator(null);
-
-
     protected int health;
     protected int attackDamage;
     protected int defense;
+    private final DistanceCalculator calculator = new DistanceCalculator(null);
 
 
     public Character(int health, int attackDamage, int defense) {

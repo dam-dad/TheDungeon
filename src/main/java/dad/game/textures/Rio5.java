@@ -1,10 +1,7 @@
 package dad.game.textures;
 
 import dad.game.engine.StaticEntity;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 
 public class Rio5 extends StaticEntity {

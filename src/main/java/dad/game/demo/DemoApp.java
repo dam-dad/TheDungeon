@@ -6,20 +6,20 @@ import javafx.stage.Stage;
 
 //TODO borrar antes de presentarlo
 public class DemoApp extends Application {
-	
-	public static Stage primaryStage;
-	
-	private GameController controller = new GameController();
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+    public static Stage primaryStage;
 
-		DemoApp.primaryStage = primaryStage;
-		
-		primaryStage.setTitle("Demo game");
-		primaryStage.setScene(new Scene(controller.getView()));
-		primaryStage.show();
+    private final GameController controller = new GameController();
 
-	}
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        DemoApp.primaryStage = primaryStage;
+
+        primaryStage.setTitle("Demo game");
+        primaryStage.setScene(new Scene(controller.getView()));
+        primaryStage.show();
+
+    }
 
 }

@@ -20,6 +20,7 @@
 .button:hover {
     -fx-background-color: #777;
 }
+
 .fondo {
     -fx-background-image: url('/images/TheDungeon.png');
     -fx-background-size: cover;

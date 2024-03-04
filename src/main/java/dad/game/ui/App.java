@@ -14,41 +14,15 @@ import javafx.stage.Stage;
 
 /**
  * Clase APP que se encarga de iniciar la aplicacion
+ *
  * @author Javier Pérez
  */
 public class App extends Application {
 
-    private static MusicThread music;
-
-    Controller controller;
-    private static Stage primaryStage;
     static Scene mainScene;
-
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
-        //cambiar cursor
-        Image cursorImage = new Image("/images/cursor.png");
-
-        App.primaryStage = primaryStage;
-        controller = new Controller();
-        mainScene = new Scene(controller.getView());
-        Font.loadFont(getClass().getResourceAsStream("/font/pokemon_pixel_font.ttf"), 14);
-        primaryStage.setTitle("The Dungeon");
-        primaryStage.getIcons().add(new Image("/images/the-dungeon-icon.png"));
-        primaryStage.setResizable(false);
-        primaryStage.setFullScreen(false);
-        primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-        primaryStage.setScene(mainScene);
-
-        /**
-         * Añadimos el cursor a la escena
-         */
-        primaryStage.getScene()
-                .setCursor(new ImageCursor(cursorImage, cursorImage.getWidth() / 2, cursorImage.getHeight() / 2));
-        primaryStage.show();
-    }
+    private static MusicThread music;
+    private static Stage primaryStage;
+    Controller controller;
 
     public static void main(String[] args) {
         launch(args);
@@ -92,6 +66,31 @@ public class App extends Application {
 
     public static void stopMusic() {
         music.pause();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        //cambiar cursor
+        Image cursorImage = new Image("/images/cursor.png");
+
+        App.primaryStage = primaryStage;
+        controller = new Controller();
+        mainScene = new Scene(controller.getView());
+        Font.loadFont(getClass().getResourceAsStream("/font/pokemon_pixel_font.ttf"), 14);
+        primaryStage.setTitle("The Dungeon");
+        primaryStage.getIcons().add(new Image("/images/the-dungeon-icon.png"));
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(false);
+        primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+        primaryStage.setScene(mainScene);
+
+        /**
+         * Añadimos el cursor a la escena
+         */
+        primaryStage.getScene()
+                .setCursor(new ImageCursor(cursorImage, cursorImage.getWidth() / 2, cursorImage.getHeight() / 2));
+        primaryStage.show();
     }
 }
 

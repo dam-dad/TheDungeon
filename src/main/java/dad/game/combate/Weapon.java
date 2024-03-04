@@ -7,20 +7,16 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * Clase Weapon que crea las armas del juego
+ *
  * @author Javier Pérez
  */
 public class Weapon {
 
     private int damage;
     private String name;
-    private Rectangle hitbox;
-    private Image weaponImage;
+    private final Rectangle hitbox;
+    private final Image weaponImage;
 
-
-
-    public int getDamage() {
-        return damage;
-    }
 
     public Weapon(String name, int damage, int width, int height, String imagePath) {
         this.name = name;
@@ -30,12 +26,20 @@ public class Weapon {
 
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
     public Rectangle getHitbox() {
         return hitbox;
     }
 
     public void attack(Enemy enemy) {
-        if (hitbox.getBoundsInParent().intersects(enemy.getHitbox().getBoundsInParent())) {
+        if (hitbox.getBoundsInParent().intersects(Enemy.getHitbox().getBoundsInParent())) {
             enemy.takeDamage(damage);
         }
     }
@@ -48,11 +52,6 @@ public class Weapon {
             gc.setStroke(Color.RED);
             gc.strokeRect(x, y, hitbox.getWidth(), hitbox.getHeight());
         }
-    }
-
-
-    public void setDamage(int damage) {
-        this.damage = damage;
     }
 
     public String getName() {

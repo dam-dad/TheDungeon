@@ -3,7 +3,6 @@ package dad.game.ui;
 import javafx.animation.FadeTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +15,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,10 +37,10 @@ public class MenuController implements Initializable {
     ImageView view2 = new ImageView(img2);
 
 
-    private BooleanProperty buttonPressed = new SimpleBooleanProperty();
+    private final BooleanProperty buttonPressed = new SimpleBooleanProperty();
 
-    private BooleanProperty pdfButtonPressed = new SimpleBooleanProperty();
-    private BooleanProperty controlMusicButtonPressed = new SimpleBooleanProperty();
+    private final BooleanProperty pdfButtonPressed = new SimpleBooleanProperty();
+    private final BooleanProperty controlMusicButtonPressed = new SimpleBooleanProperty();
 
 
     @FXML

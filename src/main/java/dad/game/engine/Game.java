@@ -32,22 +32,19 @@ import java.util.Set;
  */
 public class Game extends AnimationTimer {
 
+    String nombreusuario = "Javier";
+    //Creacion de la espada
+    Weapon sword = new Weapon("Espada", 10, 40, 40, "/images/espada.png");
     // Tiempo
     private long time;
     private long timeDifference;
-
     // Context
-    private GraphicsContext graphicsContext;
+    private final GraphicsContext graphicsContext;
     private Player player;
     private List<Entity> entities;
-
     private int enemigosDerrotados = 0;
-    String nombreusuario = "Javier";
-
-
     // Input
-    private Set<KeyCode> input = new HashSet<>();
-
+    private final Set<KeyCode> input = new HashSet<>();
     // Flags para controlar el cambio de mapas
     private boolean nextMap1 = false;
     private boolean nextMap2 = false;
@@ -65,12 +62,7 @@ public class Game extends AnimationTimer {
     private boolean nextMap8_back = false;
 
 
-    //Creacion de la espada
-    Weapon sword = new Weapon("Espada", 10, 40, 40, "/images/espada.png");
-
-
     //  private List<Entity> objects;
-
     // Nuevo flag para controlar el estado del knockback
     private boolean playerInKnockback = false;
 
@@ -238,8 +230,7 @@ public class Game extends AnimationTimer {
         // Actualización de los enemigos y posible eliminación si están derrotados
         List<Entity> toRemove = new ArrayList<>();
         entities.forEach(entity -> {
-            if (entity instanceof Enemy) {
-                Enemy enemy = (Enemy) entity;
+            if (entity instanceof Enemy enemy) {
                 enemy.update(timeDifference);
                 if (enemy.isDefeated()) {
                     toRemove.add(enemy);
@@ -283,8 +274,8 @@ public class Game extends AnimationTimer {
 
         // Realizar el ataque con la espada
         for (Entity entity : entities) {
-            if (entity instanceof Enemy && player.checkCollision(entity)) {
-                Enemy enemy = (Enemy) entity; // Declaramos la variable enemy aquí
+            if (entity instanceof Enemy enemy && player.checkCollision(entity)) {
+                // Declaramos la variable enemy aquí
                 enemy.takeDamage(sword.getDamage()); // Aplica el daño de la espada al enemigo
             }
         }

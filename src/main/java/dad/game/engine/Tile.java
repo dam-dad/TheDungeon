@@ -116,8 +116,8 @@ public class Tile {
     };
 
 
-    private static double tileLength = 48;
-    private static double tileWidth = 48;
+    private static final double tileLength = 48;
+    private static final double tileWidth = 48;
 
 
     /**

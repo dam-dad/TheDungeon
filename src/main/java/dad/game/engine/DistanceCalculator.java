@@ -7,7 +7,7 @@ import javafx.geometry.Point2D;
  */
 public class DistanceCalculator {
 
-    private Point2D referencePoint;
+    private final Point2D referencePoint;
 
     public DistanceCalculator(Point2D referencePoint) {
         this.referencePoint = referencePoint;
@@ -16,7 +16,6 @@ public class DistanceCalculator {
     public double calculateDistanceFromReference(Point2D otherPoint) {
         return referencePoint.distance(otherPoint);
     }
-
 
 
     public double calculateDistance(Point2D point1, Point2D point2) {

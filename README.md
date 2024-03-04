@@ -6,8 +6,8 @@ Juego de Rogue Like realizado en JavaFX ambientado en una mazmorra con el objeti
 
 ## :pencil2: Grupo :pencil2:
 
-
-**TheDungeon** ha sido desarrollado por un grupo de estudiantes del Ciclo Superior Desarrollo De Aplicaciones Multiplataforma:
+**TheDungeon** ha sido desarrollado por un grupo de estudiantes del Ciclo Superior Desarrollo De Aplicaciones
+Multiplataforma:
 
 - [Javier Pérez Escribano] (https://github.com/Javierbajamar)
 
@@ -15,7 +15,7 @@ Juego de Rogue Like realizado en JavaFX ambientado en una mazmorra con el objeti
 
 -
 
- ## :construction_worker: Construido con :construction_worker:
+## :construction_worker: Construido con :construction_worker:
 
 * JavaFX -> Creación de aplicaciones multimedia interactivas.
 * Maven -> Manejador de dependencias.

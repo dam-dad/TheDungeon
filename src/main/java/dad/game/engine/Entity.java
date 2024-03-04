@@ -9,51 +9,51 @@ import javafx.scene.shape.Shape;
  * Tiene propiedades que tendrán en común estos objetos como tamaño, imagen y los métodos como mostrarlos en el juego y actualizarlos.
  */
 public abstract class Entity {
-	
-	public static final double SCALE = 0.43;
-	
-	protected double posX, posY;
-	protected double width, height;
-	protected Image image;
-	
-	public abstract void render(GraphicsContext gc);
-	public abstract void update(long timeDifference);
-	public abstract Shape getCollisionShape();
-	
-	/**
-	 * comprobar las colisiones usando la interseccion
-	 * @param entidad para comprobar colision
-	 * @return
-	 */
+
+    public static final double SCALE = 0.43;
+
+    protected double posX, posY;
+    protected double width, height;
+    protected Image image;
+    /**
+     * comprobar las colisiones usando la interseccion
+     *
+     * @param entidad para comprobar colision
+     * @return
+     */
 
 
-	protected Direction direction;
+    protected Direction direction;
 
-	public Direction getDirection() {
-		return direction;
-	}
+    public abstract void render(GraphicsContext gc);
 
-	public void setDirection(Direction direction) {
-		this.direction = direction;
-	}
-	public double getPosX() {
-		return posX;
-	}
+    public abstract void update(long timeDifference);
 
-	public double getPosY() {
-		return posY;
-	}
+    public abstract Shape getCollisionShape();
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public double getPosX() {
+        return posX;
+    }
+
+    public double getPosY() {
+        return posY;
+    }
 
 
+    public boolean checkCollision(Entity entity) {
+        return (getCollisionShape() != null && entity.getCollisionShape() != null && getCollisionShape().intersects(entity.getCollisionShape().getLayoutBounds()));
+    }
 
-
-
-	public boolean checkCollision(Entity entity) {
-		return (getCollisionShape() != null && entity.getCollisionShape() != null && getCollisionShape().intersects(entity.getCollisionShape().getLayoutBounds()));
-	}
-	
-	public Image getImage() {
-		return image;
-	}
+    public Image getImage() {
+        return image;
+    }
 
 }
