@@ -90,7 +90,7 @@ public class Tile {
     };
 
     public static int[][] tileMap7 = {
-            {80, 44, 44, 46, 43, 43, 47, 44, 44, 44, 44, 44, 44, 44, 79},
+            {80, 44, 44, 46, 95, 95, 47, 44, 44, 44, 44, 44, 44, 44, 79},
             {61, 63, 64, 65, 43, 43, 63, 64, 64, 64, 64, 64, 64, 65, 57},
             {61, 70, 71, 66, 43, 54, 70, 71, 71, 72, 68, 68, 68, 88, 77},
             {61, 70, 71, 66, 52, 43, 69, 68, 68, 67, 53, 43, 43, 86, 57},
@@ -112,7 +112,7 @@ public class Tile {
             {35, 35, 35, 35, 29, 33, 26, 26, 26, 49, 26, 26, 26, 49, 26},
             {26, 36, 26, 26, 29, 33, 26, 26, 26, 36, 26, 26, 26, 26, 26},
             {49, 26, 26, 26, 29, 33, 26, 26, 26, 26, 26, 26, 36, 26, 26},
-            {26, 26, 39, 38, 25, 25, 39, 19, 19, 38, 26, 26, 26, 26, 26},
+            {26, 26, 39, 38, 96, 96, 39, 19, 19, 38, 26, 26, 26, 26, 26},
     };
 
 
@@ -420,6 +420,12 @@ public class Tile {
                         break;
                     case 94:
                         entities.add(new Map7TransitionBack(j * tileWidth, i * tileLength));
+                        break;
+                    case 95:
+                        entities.add(new Map8Transition(j * tileWidth, i * tileLength));
+                        break;
+                    case 96:
+                        entities.add(new Map8TransitionBack(j * tileWidth, i * tileLength));
                         break;
 
 
