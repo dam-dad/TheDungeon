@@ -54,6 +54,8 @@ public class Game extends AnimationTimer {
     private boolean nextMap6_back = false;
     private boolean nextMap7 = false;
     private boolean nextMap7_back = false;
+    private boolean nextMap8 = false;
+    private boolean nextMap8_back = false;
 
 
     //Creacion de la espada
@@ -209,6 +211,20 @@ public class Game extends AnimationTimer {
             player.posY = 1 * Tile.getTileLength(); // Última fila
             nextMap7_back = false;
             System.out.println("Changed to Map 6");
+        }else if (nextMap8) {
+            System.out.println("Changing to Map 8...");
+            this.entities = Tile.loadTile(Tile.tileMap8);
+            player.posX = 5 * Tile.getTileWidth(); // Quinta columna desde la izquierda
+            player.posY = 8 * Tile.getTileLength(); // Primera fila
+            nextMap8 = false;
+            System.out.println("Changed to Map 8");
+        } else if (nextMap8_back) {
+            System.out.println("Changing to Map 7...");
+            this.entities = Tile.loadTile(Tile.tileMap7);
+            player.posX = 5 * Tile.getTileWidth(); // Cuarta columna desde la izquierda
+            player.posY = 1 * Tile.getTileLength(); // Última fila
+            nextMap8_back = false;
+            System.out.println("Changed to Map 7");
         }
 
 
@@ -296,6 +312,10 @@ public class Game extends AnimationTimer {
                     nextMap7 = true;
                 } else if (entity instanceof Map7TransitionBack) {
                     nextMap7_back = true;
+                } else if (entity instanceof Map8Transition) {
+                    nextMap8 = true;
+                } else if (entity instanceof Map8TransitionBack) {
+                    nextMap8_back = true;
                 }
 
                 player.move(null);
