@@ -63,9 +63,7 @@ public class Enemy extends Character {
             System.err.println("La animación es null para la dirección: " + getDirection());
         }
 
-        Rectangle shape = (Rectangle) getCollisionShape();
-        gc.setFill(Color.OLIVEDRAB);
-        gc.fillRect(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+
     }
 
 
