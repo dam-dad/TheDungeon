@@ -77,8 +77,8 @@ public class Game extends AnimationTimer {
     public void init() {
 
 
-        this.player = new Player(100,25,0,64, 64, 2);
-       // this.entities.addAll(Tile.loadTile(Tile.tileMap1));
+        this.player = new Player(100, 25, 0, 64, 64, 2);
+        // this.entities.addAll(Tile.loadTile(Tile.tileMap1));
         this.entities = Tile.loadTile(Tile.tileMap1);
 
 
@@ -86,7 +86,7 @@ public class Game extends AnimationTimer {
 
 
         //Image enemyImage = new Image("/images/idleDown.png");  // Reemplaza con la ruta correcta
-        Enemy enemy = new Enemy(100,25,0,200.0, 200.0, 30, player);
+        Enemy enemy = new Enemy(100, 25, 0, 200.0, 200.0, 30, player);
         this.entities.add(enemy);
         //Comentar hasta aquí
 
@@ -113,7 +113,6 @@ public class Game extends AnimationTimer {
 
     /**
      * Actualiza las entidades del juego
-     *
      */
     private void update() {
         player.update(timeDifference);
@@ -131,7 +130,7 @@ public class Game extends AnimationTimer {
             player.posY = 0;
             nextMap2 = false;
             System.out.println("Changed to Map 1");
-        }else if (nextMap3) {
+        } else if (nextMap3) {
             System.out.println("Changing to Map 3...");
             this.entities = Tile.loadTile(Tile.tileMap3);
             player.posX = 13 * Tile.getTileWidth(); // Columna 14 (índice 13), cada tile tiene 48px de ancho
@@ -140,7 +139,7 @@ public class Game extends AnimationTimer {
 
             nextMap3 = false;
             System.out.println("Changed to Map 3");
-        }else if (nextMap3_2) {
+        } else if (nextMap3_2) {
             System.out.println("Changing to Map 2...");
             this.entities = Tile.loadTile(Tile.tileMap2);
             player.posX = 1 * Tile.getTileWidth(); // La columna 2
@@ -151,22 +150,21 @@ public class Game extends AnimationTimer {
 
             nextMap3_2 = false;
             System.out.println("Changed to Map 2");
-        }else if (nextMap4) {
+        } else if (nextMap4) {
             System.out.println("Changing to Map 4...");
             this.entities = Tile.loadTile(Tile.tileMap4);
             player.posX = 6 * Tile.getTileWidth(); // Para el número 36
             player.posY = 1 * Tile.getTileLength(); // Segunda fila
             nextMap4 = false;
             System.out.println("Changed to Map 4");
-        }else if (nextMap4_back) {
+        } else if (nextMap4_back) {
             System.out.println("Changing to Map 3...");
             this.entities = Tile.loadTile(Tile.tileMap3);
             player.posX = 6 * Tile.getTileWidth(); // Para el primer número 49 encima del 84
             player.posY = 8 * Tile.getTileLength(); // Novena fila
             nextMap4_back = false;
             System.out.println("Changed to Map 3");
-        }
-        else if (nextMap5) {
+        } else if (nextMap5) {
             System.out.println("Changing to Map 4...");
             this.entities = Tile.loadTile(Tile.tileMap5);
             player.posY = 0;
@@ -191,7 +189,7 @@ public class Game extends AnimationTimer {
         entities.removeAll(toRemove);
 
         entities.removeIf(entity -> entity instanceof Enemy && ((Enemy) entity).isDefeated());
-       // listEnemys.getAllEnemies().removeIf(Enemy::isDefeated);
+        // listEnemys.getAllEnemies().removeIf(Enemy::isDefeated);
     }
 
     // procesamos las entradas
@@ -218,7 +216,7 @@ public class Game extends AnimationTimer {
 
     private void useSword() {
         // Crear una instancia de la espada
-        Weapon sword = new Weapon("Espada", 10, 40, 40,"images/espada.png"); // Utiliza los valores adecuados para width y height
+        Weapon sword = new Weapon("Espada", 10, 40, 40, "images/espada.png"); // Utiliza los valores adecuados para width y height
 
         // Realizar el ataque con la espada
         for (Entity entity : entities) {
@@ -233,18 +231,18 @@ public class Game extends AnimationTimer {
     private void checkCollisions() {
         for (Entity entity : entities) {
             if (player.checkCollision(entity)) {
-              //  System.out.println("Collision detected with: " + entity.getClass().getSimpleName());
+                //  System.out.println("Collision detected with: " + entity.getClass().getSimpleName());
                 if (entity instanceof Map1Transition) {
                     nextMap1 = true;
                 } else if (entity instanceof Map2Transition) {
                     nextMap2 = true;
-                }else if (entity instanceof Map3Transition) {
+                } else if (entity instanceof Map3Transition) {
                     nextMap3 = true;
-                }else if (entity instanceof Map3TransitionBack) {
+                } else if (entity instanceof Map3TransitionBack) {
                     nextMap3_2 = true;
-                }else if (entity instanceof Map4Transition) {
+                } else if (entity instanceof Map4Transition) {
                     nextMap4 = true;
-                }else if (entity instanceof Map4TransitionBack) {
+                } else if (entity instanceof Map4TransitionBack) {
                     nextMap4_back = true;
                 }
                 player.move(null);
@@ -293,7 +291,6 @@ public class Game extends AnimationTimer {
     }
 
 
-
     // pinta t-odo
     private void render() {
         entities.forEach(entity -> entity.render(graphicsContext));
@@ -322,7 +319,6 @@ public class Game extends AnimationTimer {
         ReportService.generarPdf(puntuaciones);
 
     }
-
 
 
 }
