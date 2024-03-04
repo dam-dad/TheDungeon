@@ -50,6 +50,8 @@ public class Game extends AnimationTimer {
     private boolean nextMap4_back = false;
     private boolean nextMap5 = false;
     private boolean nextMap5_back = false;
+    private boolean nextMap6 = false;
+    private boolean nextMap6_back = false;
 
     //Creacion de la espada
     Weapon sword = new Weapon("Espada", 10, 40, 40, "/images/espada.png");
@@ -169,15 +171,28 @@ public class Game extends AnimationTimer {
             player.posY = 8 * Tile.getTileLength(); // Primera fila
             nextMap5 = false;
             System.out.println("Changed to Map 5");
-        }else if (nextMap5_back) {
+        } else if (nextMap5_back) {
             System.out.println("Changing to Map 2...");
             this.entities = Tile.loadTile(Tile.tileMap2);
             player.posX = 9 * Tile.getTileWidth(); // Para el número 90
             player.posY = 0 * Tile.getTileLength(); // Cuarta fila
             nextMap5_back = false;
             System.out.println("Changed to Map 2");
+        } else if (nextMap6) {
+            System.out.println("Changing to Map 6...");
+            this.entities = Tile.loadTile(Tile.tileMap8);
+            player.posX = 1 * Tile.getTileWidth(); // Primera columna
+            player.posY = 7 * Tile.getTileLength(); // Octava fila (segunda por debajo)
+            nextMap6 = false;
+            System.out.println("Changed to Map 6");
+        } else if (nextMap6_back) {
+            System.out.println("Changing to Map 5...");
+            this.entities = Tile.loadTile(Tile.tileMap5);
+            player.posX = 9 * Tile.getTileWidth(); // Para el número "91"
+            player.posY = 1 * Tile.getTileLength(); // Primera fila
+            nextMap6_back = false;
+            System.out.println("Changed to Map 5");
         }
-
 
 
         // Actualización de los enemigos y posible eliminación si están derrotados
@@ -252,10 +267,14 @@ public class Game extends AnimationTimer {
                     nextMap4 = true;
                 } else if (entity instanceof Map4TransitionBack) {
                     nextMap4_back = true;
-                }else if (entity instanceof Map5Transition) {
+                } else if (entity instanceof Map5Transition) {
                     nextMap5 = true;
                 } else if (entity instanceof Map5TransitionBack) {
                     nextMap5_back = true;
+                } else if (entity instanceof Map6Transition) {
+                    nextMap6 = true;
+                } else if (entity instanceof Map6TransitionBack) {
+                    nextMap6_back = true;
                 }
 
                 player.move(null);
