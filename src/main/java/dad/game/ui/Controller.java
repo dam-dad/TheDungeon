@@ -62,9 +62,9 @@ public class Controller implements Initializable {
     }
 
     private void sepulsobotonPDF(ObservableValue<? extends Boolean> o, Boolean ov, Boolean nv) {
-        if (nv) { // Si el nuevo valor es true, significa que el botón fue presionado
+        if (nv) {
             try {
-                // Asegúrate de que esta ruta corresponde a donde se guarda tu archivo PDF
+
                 File pdfFile = new File("Score.pdf");
                 if (pdfFile.exists()) {
                     // Abre el archivo PDF con la aplicación predeterminada
@@ -75,7 +75,7 @@ public class Controller implements Initializable {
                         System.out.println("El escritorio no es compatible. No se puede abrir el archivo.");
                     }
                 } else {
-                    // El archivo no existe, puedes optar por generar el PDF aquí o mostrar un mensaje de error
+                    
                     System.out.println("El archivo PDF no existe.");
                 }
             } catch (IOException e) {
