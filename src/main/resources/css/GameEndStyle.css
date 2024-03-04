@@ -1,0 +1,26 @@
+.root {
+    -fx-font-family: 'Arial';
+    -fx-base: #202020;
+    -fx-background-color: #383838;
+}
+
+.label {
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+    -fx-font-size: 24px;
+}
+
+.button {
+    -fx-background-color: #666;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+}
+
+.button:hover {
+    -fx-background-color: #777;
+}
+.fondo {
+    -fx-background-image: url('/images/TheDungeon.png');
+    -fx-background-size: cover;
+}

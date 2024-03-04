@@ -395,25 +395,38 @@ public class Game extends AnimationTimer {
         this.entities.add(enemy);
     }
 
+    @Override
+    public void stop() {
+        super.stop(); // Detiene el AnimationTimer
+        // Aquí puedes agregar más lógica para limpiar o resetear el estado del juego si es necesario
+    }
 
     public void onGameEnd() {
-
+        stop();
         Platform.runLater(() -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GameEndView.fxml"));
                 Parent root = loader.load();
 
                 GameEndController controller = loader.getController();
-                controller.setScore(enemigosDerrotados); // Asumiendo que tienes una variable `enemigosDerrotados`
+                controller.setScore(enemigosDerrotados); // Configura la puntuación final en la pantalla de "Juego Terminado"
 
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.setTitle("Juego Terminado");
-                stage.show();
+                // Obtiene la ventana (Stage) actual a través del GraphicsContext del Canvas
+                Stage currentStage = (Stage) graphicsContext.getCanvas().getScene().getWindow();
 
-                // Opcional: cerrar la ventana actual si es necesario
-                // ((Stage) algunComponenteDeLaUIActual.getScene().getWindow()).close();
+                // Cambia la escena actual por la nueva escena de "Juego Terminado"
+                currentStage.setScene(new Scene(root));
+                currentStage.setTitle("Juego Terminado");
+                currentStage.show();
+
+                List<Puntuacion> puntuaciones = new ArrayList<>();
+                puntuaciones.add(new Puntuacion("Jugador Nuevo", enemigosDerrotados));
+                try {
+                    ReportService.generarPdf(puntuaciones);
+                } catch (JRException | IOException e) {
+                    e.printStackTrace();
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -436,13 +449,7 @@ public class Game extends AnimationTimer {
     }
 
     private void generatePdf() {
-        List<Puntuacion> puntuaciones = new ArrayList<>();
-        puntuaciones.add(new Puntuacion("Jugador Nuevo", enemigosDerrotados));
-        try {
-            ReportService.generarPdf(puntuaciones);
-        } catch (JRException | IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     }
