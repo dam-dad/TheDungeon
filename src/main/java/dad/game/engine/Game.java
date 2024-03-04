@@ -52,6 +52,9 @@ public class Game extends AnimationTimer {
     private boolean nextMap5_back = false;
     private boolean nextMap6 = false;
     private boolean nextMap6_back = false;
+    private boolean nextMap7 = false;
+    private boolean nextMap7_back = false;
+
 
     //Creacion de la espada
     Weapon sword = new Weapon("Espada", 10, 40, 40, "/images/espada.png");
@@ -192,6 +195,20 @@ public class Game extends AnimationTimer {
             player.posY = 1 * Tile.getTileLength(); // Primera fila
             nextMap6_back = false;
             System.out.println("Changed to Map 5");
+        } else if (nextMap7) {
+            System.out.println("Changing to Map 7...");
+            this.entities = Tile.loadTile(Tile.tileMap7);
+            player.posX = 5 * Tile.getTileWidth(); // Quinta columna desde la izquierda
+            player.posY = 8 * Tile.getTileLength(); // Primera fila
+            nextMap7 = false;
+            System.out.println("Changed to Map 7");
+        } else if (nextMap7_back) {
+            System.out.println("Changing to Map 6...");
+            this.entities = Tile.loadTile(Tile.tileMap6);
+            player.posX = 5 * Tile.getTileWidth(); // Cuarta columna desde la izquierda
+            player.posY = 1 * Tile.getTileLength(); // Última fila
+            nextMap7_back = false;
+            System.out.println("Changed to Map 6");
         }
 
 
@@ -275,6 +292,10 @@ public class Game extends AnimationTimer {
                     nextMap6 = true;
                 } else if (entity instanceof Map6TransitionBack) {
                     nextMap6_back = true;
+                } else if (entity instanceof Map7Transition) {
+                    nextMap7 = true;
+                } else if (entity instanceof Map7TransitionBack) {
+                    nextMap7_back = true;
                 }
 
                 player.move(null);
