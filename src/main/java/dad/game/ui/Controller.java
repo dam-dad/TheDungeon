@@ -93,7 +93,7 @@ public class Controller implements Initializable {
                 gameController.startGame();
             } catch (Exception e) {
                 e.printStackTrace();
-                
+
             }
         });
     }

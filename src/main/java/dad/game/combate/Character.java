@@ -41,18 +41,10 @@ public class Character extends Entity {
         }
     }
 
-   /* public void attackWithSword(List<Enemy> allEnemies) {
-        List<Enemy> enemiesInRange = getEnemiesInRange(allEnemies);
-        for (Enemy enemy : enemiesInRange) {
-            // Asumiendo que 'attackDamage' es el daño de ataque del jugador
-            this.attack(enemy, this.attackDamage);
-        }
-    }*/
-
 
     protected List<Enemy> getEnemiesInRange(List<Enemy> allEnemies) {
         List<Enemy> enemiesInRange = new ArrayList<>();
-        for (Enemy enemy : allEnemies) { // 'allEnemies' debería ser una lista de todos los enemigos en el juego
+        for (Enemy enemy : allEnemies) {
             if (isInRange(this, enemy)) {
                 enemiesInRange.add(enemy);
             }
@@ -60,7 +52,7 @@ public class Character extends Entity {
         return enemiesInRange;
     }
 
-    //todo Clase separada para sacar la distancia
+
     private boolean isInRange(Character attacker, Character target) {
         Point2D attackerPosition = new Point2D(attacker.getPosX(), attacker.getPosY());
         Point2D targetPosition = new Point2D(target.getPosX(), target.getPosY());

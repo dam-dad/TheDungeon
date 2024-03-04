@@ -46,10 +46,10 @@ public class Enemy extends Character {
     private Map<Direction, Animation> createAnimations() {
         Map<Direction, Animation> enemyAnimations = new HashMap<>();
         // Define las animaciones para cada dirección del enemigo
-        enemyAnimations.put(Direction.NORTH, new Animation("/images/idleUp.png"));
-        enemyAnimations.put(Direction.SOUTH, new Animation("/images/idleDown.png"));
-        enemyAnimations.put(Direction.EAST, new Animation("/images/idleRight.png"));
-        enemyAnimations.put(Direction.WEST, new Animation("/images/idleLeft.png"));
+        enemyAnimations.put(Direction.NORTH, new Animation("/images/FantasmaUp.png"));
+        enemyAnimations.put(Direction.SOUTH, new Animation("/images/FantasmaDown.png"));
+        enemyAnimations.put(Direction.EAST, new Animation("/images/FantasmaRight.png"));
+        enemyAnimations.put(Direction.WEST, new Animation("/images/FantasmaLeft.png"));
         return enemyAnimations;
     }
 
