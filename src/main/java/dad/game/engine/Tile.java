@@ -26,7 +26,7 @@ public class Tile {
     };
 
     public static int[][] tileMap2 = {
-            {17, 17, 17, 17, 17, 17, 17, 44, 46, 43, 43, 47, 44, 17, 21},
+            {17, 17, 17, 17, 17, 17, 17, 44, 46, 89, 89, 47, 44, 17, 21},
             {12, 12, 12, 12, 12, 12, 12, 12, 12, 43, 43, 12, 12, 7, 18},
             {16, 16, 16, 16, 16, 16, 16, 16, 16, 43, 43, 16, 14, 8, 18},
             {45, 26, 26, 39, 19, 38, 26, 36, 26, 26, 26, 26, 6, 8, 18},
@@ -74,7 +74,7 @@ public class Tile {
             {56, 56, 56, 56, 56, 56, 56, 56, 61, 55, 55, 77, 56, 56, 56},
             {56, 56, 56, 56, 56, 56, 56, 56, 76, 55, 43, 57, 56, 56, 56},
             {56, 56, 56, 56, 56, 56, 56, 56, 61, 55, 43, 57, 56, 56, 56},
-            {56, 56, 56, 56, 56, 56, 56, 56, 61, 43, 43, 57, 56, 56, 56},
+            {56, 56, 56, 56, 56, 56, 56, 56, 61, 90, 90, 57, 56, 56, 56},
     };
     public static int[][] tileMap6 = {
             {80, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 79},
@@ -123,7 +123,7 @@ public class Tile {
     /**
      * Recorremos el tilemap pasado y cargamos un tile según el número que detecta dentro del tilemap
      *
-     * @param Le pasamos por parametro el tilemap y lo recorremos
+     * @param tileMap pasamos por parametro el tilemap y lo recorremos
      * @return
      */
 
@@ -402,6 +402,12 @@ public class Tile {
                         break;
                     case 88:
                         entities.add(new Agua16(j * tileWidth, i * tileLength));
+                        break;
+                    case 89:
+                        entities.add(new Map5Transition(j * tileWidth, i * tileLength));
+                        break;
+                    case 90:
+                        entities.add(new Map5TransitionBack(j * tileWidth, i * tileLength));
                         break;
 
 
