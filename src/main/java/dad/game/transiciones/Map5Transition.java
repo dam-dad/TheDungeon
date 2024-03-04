@@ -17,7 +17,7 @@ public class Map5Transition extends StaticEntity {
 
     @Override
     public Shape getCollisionShape() {
-        return new Rectangle(posX, posY + 48, width, height);
+        return new Rectangle(posX, posY - 48, width, height);
 
     }
 
