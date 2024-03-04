@@ -10,13 +10,10 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
@@ -326,7 +323,7 @@ public class Game extends AnimationTimer {
                 } else if (entity instanceof Map8TransitionBack) {
                     nextMap8_back = true;
                 } else if (entity instanceof Map9Transition) {
-                        onGameEnd();
+                    onGameEnd();
 
                 }
 
@@ -434,23 +431,5 @@ public class Game extends AnimationTimer {
     }
 
 
-    private void loadMainMenu() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MenuView.fxml"));
-            loader.setController(this);
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) graphicsContext.getCanvas().getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void generatePdf() {
-
-    }
-
-    }
+}
 
