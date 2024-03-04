@@ -75,7 +75,7 @@ public class Controller implements Initializable {
                         System.out.println("El escritorio no es compatible. No se puede abrir el archivo.");
                     }
                 } else {
-                    
+
                     System.out.println("El archivo PDF no existe.");
                 }
             } catch (IOException e) {
@@ -93,7 +93,7 @@ public class Controller implements Initializable {
                 gameController.startGame();
             } catch (Exception e) {
                 e.printStackTrace();
-                // Agrega aquí el manejo de excepciones según tus necesidades
+                
             }
         });
     }
