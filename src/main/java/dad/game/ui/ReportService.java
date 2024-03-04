@@ -1,28 +1,14 @@
 package dad.game.ui;
 
-import java.awt.Desktop;
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
-
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.swing.*;
-
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class ReportService {
 
@@ -46,17 +32,5 @@ public class ReportService {
         Desktop.getDesktop().open(new File(PDF_FILE));
     }
 
-    public static void main(String[] args) {
-        // Crear algunos datos de ejemplo (aquí puedes pasar tu lista con los datos)
-        List<Puntuacion> lista = new ArrayList<>();
-        lista.add(new Puntuacion("Javier", 10));
-        lista.add(new Puntuacion("Luis", 15));
-        lista.add(new Puntuacion("Pedro", 20));
 
-        try {
-            ReportService.generarPdf(lista);
-        } catch (JRException | IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
