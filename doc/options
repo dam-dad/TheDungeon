@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/javie/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21-win.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21-win.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21-win.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21-win.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21-win.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21-win.jar;C:/Users/javie/.m2/repository/net/sf/jasperreports/jasperreports/6.20.0/jasperreports-6.20.0.jar;C:/Users/javie/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar;C:/Users/javie/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar;C:/Users/javie/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar;C:/Users/javie/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar;C:/Users/javie/.m2/repository/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar;C:/Users/javie/.m2/repository/com/lowagie/itext/2.1.7.js10/itext-2.1.7.js10.jar;C:/Users/javie/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar;C:/Users/javie/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar;C:/Users/javie/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar;C:/Users/javie/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar;C:/Users/javie/.m2/repository/org/eclipse/jdt/ecj/3.21.0/ecj-3.21.0.jar;C:/Users/javie/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.3/jackson-core-2.13.3.jar;C:/Users/javie/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.3/jackson-databind-2.13.3.jar;C:/Users/javie/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.3/jackson-annotations-2.13.3.jar;C:/Users/javie/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.3/jackson-dataformat-xml-2.13.3.jar;C:/Users/javie/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar;C:/Users/javie/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-swing/21/javafx-swing-21.jar;C:/Users/javie/.m2/repository/org/openjfx/javafx-swing/21/javafx-swing-21-win.jar'
+-encoding
+'UTF-8'
+-private
+-source
+'17'
+-sourcepath
+'C:/Users/javie/TheDungeon/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/javie/TheDungeon/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'GameEngine 1.0 API'
+-use
+-version
+-windowtitle
+'GameEngine 1.0 API'
