@@ -31,5 +31,5 @@ public class ReportService {
         // Abrimos el archivo PDF generado con el programa predeterminado del sistema
         Desktop.getDesktop().open(new File(PDF_FILE));
     }
-    
+
 }
