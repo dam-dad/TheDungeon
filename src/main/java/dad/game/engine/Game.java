@@ -394,8 +394,8 @@ public class Game extends AnimationTimer {
 
     @Override
     public void stop() {
-        super.stop(); // Detiene el AnimationTimer
-        // Aquí puedes agregar más lógica para limpiar o resetear el estado del juego si es necesario
+        super.stop(); 
+
     }
 
     public void onGameEnd() {
