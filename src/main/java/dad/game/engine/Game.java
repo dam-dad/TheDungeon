@@ -1,22 +1,31 @@
 package dad.game.engine;
 
+import dad.game.combate.Enemy;
+import dad.game.combate.Weapon;
+import dad.game.transiciones.*;
+import dad.game.ui.GameEndController;
+import dad.game.ui.Puntuacion;
+import dad.game.ui.ReportService;
+import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Point2D;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import dad.game.combate.Weapon;
-import dad.game.transiciones.*;
-import dad.game.combate.Enemy;
-import dad.game.ui.Puntuacion;
-import dad.game.ui.ReportService;
-import javafx.animation.AnimationTimer;
-import javafx.geometry.Point2D;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyCode;
-import net.sf.jasperreports.engine.JRException;
 
 
 /**
@@ -211,7 +220,7 @@ public class Game extends AnimationTimer {
             player.posY = 1 * Tile.getTileLength(); // Última fila
             nextMap7_back = false;
             System.out.println("Changed to Map 6");
-        }else if (nextMap8) {
+        } else if (nextMap8) {
             System.out.println("Changing to Map 8...");
             this.entities = Tile.loadTile(Tile.tileMap8);
             player.posX = 5 * Tile.getTileWidth(); // Quinta columna desde la izquierda
@@ -316,6 +325,9 @@ public class Game extends AnimationTimer {
                     nextMap8 = true;
                 } else if (entity instanceof Map8TransitionBack) {
                     nextMap8_back = true;
+                } else if (entity instanceof Map9Transition) {
+                        onGameEnd();
+
                 }
 
                 player.move(null);
@@ -383,15 +395,55 @@ public class Game extends AnimationTimer {
         this.entities.add(enemy);
     }
 
-    public void onGameEnd() throws JRException, IOException {
-        List<Puntuacion> puntuaciones = new ArrayList<>();
-        // Aquí asumimos que tienes acceso a los datos del jugador al final del juego
-        puntuaciones.add(new Puntuacion("Jugador Nuevo", enemigosDerrotados));
 
-        ReportService generator = new ReportService();
-        ReportService.generarPdf(puntuaciones);
+    public void onGameEnd() {
 
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GameEndView.fxml"));
+                Parent root = loader.load();
+
+                GameEndController controller = loader.getController();
+                controller.setScore(enemigosDerrotados); // Asumiendo que tienes una variable `enemigosDerrotados`
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Juego Terminado");
+                stage.show();
+
+                // Opcional: cerrar la ventana actual si es necesario
+                // ((Stage) algunComponenteDeLaUIActual.getScene().getWindow()).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 
-}
+    private void loadMainMenu() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MenuView.fxml"));
+            loader.setController(this);
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) graphicsContext.getCanvas().getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void generatePdf() {
+        List<Puntuacion> puntuaciones = new ArrayList<>();
+        puntuaciones.add(new Puntuacion("Jugador Nuevo", enemigosDerrotados));
+        try {
+            ReportService.generarPdf(puntuaciones);
+        } catch (JRException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    }
+

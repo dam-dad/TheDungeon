@@ -12,7 +12,6 @@ public class MusicThread extends Thread {
     private String file;
     private MediaPlayer player;
 
-
     public MusicThread(String file) {
         this.file = file;
     }
@@ -22,14 +21,20 @@ public class MusicThread extends Thread {
      */
     public void play() {
         URL path = getClass().getResource("/music/" + file + ".mp3");
-        Media media;
+        if (path == null) {
+            System.err.println("No se encontró el archivo de música: " + file);
+        } else {
+            System.out.println("Ruta del archivo de música encontrada: " + path);
+        }
+
         try {
-            media = new Media(path.toURI().toString());
+            Media media = new Media(path.toURI().toString());
             player = new MediaPlayer(media);
             player.setVolume(0.03);
-            player.setCycleCount(Transition.INDEFINITE);
+            player.setCycleCount(MediaPlayer.INDEFINITE);
             player.play();
         } catch (URISyntaxException e) {
+            System.err.println("Error al cargar el archivo de música: " + file);
             e.printStackTrace();
         }
     }
@@ -38,10 +43,13 @@ public class MusicThread extends Thread {
      * Método para pausar la música
      */
     public void pause() {
-        try {
-            player.stop();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (player != null) {
+            try {
+                player.stop();
+            } catch (Exception e) {
+                System.err.println("Error al pausar la música.");
+                e.printStackTrace();
+            }
         }
     }
 }

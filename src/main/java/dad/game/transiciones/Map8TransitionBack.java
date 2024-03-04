@@ -8,7 +8,7 @@ import javafx.scene.shape.Shape;
 public class Map8TransitionBack extends StaticEntity {
 
     public Map8TransitionBack(double x, double y) {
-        super(new Image("/images/Puente.png"), x, y);
+        super(new Image("/images/CespedDesga.png"), x, y);
     }
 
 

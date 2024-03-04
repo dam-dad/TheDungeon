@@ -97,22 +97,13 @@ public class MenuController implements Initializable {
 
     @FXML
     void onControlMusicButton(ActionEvent event) {
-        Task<Void> actualizarEstadoMusica = new Task<Void>() {
-            protected Void call() throws Exception {
-                controlMusicButtonPressed.set(true);
-                controlMusicButton.setOnAction(e -> {
-                    if (controlMusicButton.getGraphic().equals(view1)) {
-                        controlMusicButton.setGraphic(view2);
-                        App.stopMusic();
-                    } else {
-                        controlMusicButton.setGraphic(view1);
-                        App.playMusic("Menu_Song");
-                    }
-                });
-                return null;
-            }
-        };
-        new Thread(actualizarEstadoMusica).start();
+        if (controlMusicButton.getGraphic().equals(view1)) {
+            controlMusicButton.setGraphic(view2);
+            App.stopMusic();
+        } else {
+            controlMusicButton.setGraphic(view1);
+            App.playMusic("Menu_Song");
+        }
     }
 
     public BorderPane getView() {
