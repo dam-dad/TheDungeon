@@ -65,7 +65,7 @@ public class Tile {
     };
 
     public static int[][] tileMap5 = {
-            {56, 56, 56, 56, 56, 80, 44, 44, 46, 43, 43, 47, 44, 44, 79},
+            {56, 56, 56, 56, 56, 80, 44, 44, 46, 91, 91, 47, 44, 44, 79},
             {56, 56, 56, 56, 56, 61, 55, 55, 43, 54, 55, 43, 43, 43, 57},
             {56, 56, 56, 56, 56, 76, 55, 43, 52, 43, 53, 55, 52, 43, 57},
             {56, 56, 56, 56, 56, 61, 52, 43, 54, 55, 43, 43, 43, 54, 77},
@@ -408,6 +408,12 @@ public class Tile {
                         break;
                     case 90:
                         entities.add(new Map5TransitionBack(j * tileWidth, i * tileLength));
+                        break;
+                    case 91:
+                        entities.add(new Map6Transition(j * tileWidth, i * tileLength));
+                        break;
+                    case 92:
+                        entities.add(new Map6TransitionBack(j * tileWidth, i * tileLength));
                         break;
 
 
