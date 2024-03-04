@@ -5,6 +5,7 @@ import dad.game.combate.Weapon;
 import dad.game.transiciones.*;
 import dad.game.ui.GameEndController;
 import dad.game.ui.Puntuacion;
+import dad.game.ui.PuntuacionService;
 import dad.game.ui.ReportService;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
@@ -41,7 +42,7 @@ public class Game extends AnimationTimer {
     private List<Entity> entities;
 
     private int enemigosDerrotados = 0;
-    String nombreusuario = "Usuario 1";
+    String nombreusuario = "Javier";
 
 
     // Input
@@ -394,37 +395,36 @@ public class Game extends AnimationTimer {
 
     @Override
     public void stop() {
-        super.stop(); 
+        super.stop();
 
     }
 
     public void onGameEnd() {
-        stop();
+        stop(); // Detiene el bucle del juego
         Platform.runLater(() -> {
             try {
+                // Guarda la puntuación actual en el archivo
+                Puntuacion nuevaPuntuacion = new Puntuacion(nombreusuario, enemigosDerrotados); // Asume que tienes una variable nombreusuario
+                PuntuacionService.guardarPuntuacion(nuevaPuntuacion);
+
+                // Lee todas las puntuaciones acumuladas
+                List<Puntuacion> puntuaciones = PuntuacionService.leerPuntuaciones();
+
+                // Genera el reporte PDF con todas las puntuaciones
+                ReportService.generarPdf(puntuaciones);
+
+                // Carga y muestra la pantalla de "Juego Terminado"
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GameEndView.fxml"));
                 Parent root = loader.load();
-
                 GameEndController controller = loader.getController();
-                controller.setScore(enemigosDerrotados); // Configura la puntuación final en la pantalla de "Juego Terminado"
+                controller.setScore(enemigosDerrotados); // Configura la puntuación final
 
-                // Obtiene la ventana (Stage) actual a través del GraphicsContext del Canvas
                 Stage currentStage = (Stage) graphicsContext.getCanvas().getScene().getWindow();
-
-                // Cambia la escena actual por la nueva escena de "Juego Terminado"
                 currentStage.setScene(new Scene(root));
                 currentStage.setTitle("Juego Terminado");
                 currentStage.show();
 
-                List<Puntuacion> puntuaciones = new ArrayList<>();
-                puntuaciones.add(new Puntuacion("Jugador Nuevo", enemigosDerrotados));
-                try {
-                    ReportService.generarPdf(puntuaciones);
-                } catch (JRException | IOException e) {
-                    e.printStackTrace();
-                }
-
-            } catch (IOException e) {
+            } catch (IOException | JRException e) {
                 e.printStackTrace();
             }
         });
