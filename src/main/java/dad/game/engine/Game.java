@@ -167,7 +167,7 @@ public class Game extends AnimationTimer {
         } else if (nextMap5) {
             System.out.println("Changing to Map 5...");
             this.entities = Tile.loadTile(Tile.tileMap5);
-            player.posX = 9 * Tile.getTileWidth(); // Para el número 43
+            player.posX = 10 * Tile.getTileWidth(); // Para el número 43
             player.posY = 8 * Tile.getTileLength(); // Primera fila
             nextMap5 = false;
             System.out.println("Changed to Map 5");
@@ -180,8 +180,8 @@ public class Game extends AnimationTimer {
             System.out.println("Changed to Map 2");
         } else if (nextMap6) {
             System.out.println("Changing to Map 6...");
-            this.entities = Tile.loadTile(Tile.tileMap8);
-            player.posX = 1 * Tile.getTileWidth(); // Primera columna
+            this.entities = Tile.loadTile(Tile.tileMap6);
+            player.posX = 10 * Tile.getTileWidth(); // Quinta columna desde la izquierda
             player.posY = 7 * Tile.getTileLength(); // Octava fila (segunda por debajo)
             nextMap6 = false;
             System.out.println("Changed to Map 6");
