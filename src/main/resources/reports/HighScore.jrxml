@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
 <jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xmlns="http://jasperreports.sourceforge.net/jasperreports"
               xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
@@ -15,7 +13,7 @@
         <band splitType="Stretch"/>
     </background>
     <title>
-        <band height="79" splitType="Stretch">
+        <band height="150" splitType="Stretch">
             <staticText>
                 <reportElement x="0" y="0" width="555" height="79" uuid="e9c98c67-2d1e-453d-b5d6-6385e90964e7"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
@@ -23,6 +21,11 @@
                 </textElement>
                 <text><![CDATA[High-Score]]></text>
             </staticText>
+            <textField>
+                <reportElement x="0" y="80" width="555" height="50"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA["Fecha" + new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date())]]></textFieldExpression>
+            </textField>
         </band>
     </title>
     <pageHeader>
