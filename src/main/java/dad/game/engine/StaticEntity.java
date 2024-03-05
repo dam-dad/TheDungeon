@@ -27,7 +27,6 @@ public class StaticEntity extends Entity {
 
     @Override
     public void update(long timeDifference) {
-        // do nothing
     }
 
     @Override
