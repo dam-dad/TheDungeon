@@ -1,6 +1,6 @@
 # The Dungeon - Guía de Usuario
 
-El juego conta de un menú principal con los siguientes apartados:
+El juego consta de un menú principal con los siguientes apartados:
 
 + Iniciar partida
 + Generar PDF
