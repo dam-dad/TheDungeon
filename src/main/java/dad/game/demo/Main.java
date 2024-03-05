@@ -12,10 +12,6 @@ import dad.game.ui.App;
 
 public class Main {
 
-	/*public static void main(String[] args) {
-		Application.launch(DemoApp.class, args);
-	}*/
-
 
     public static void main(String[] args) {
         App.main(args);

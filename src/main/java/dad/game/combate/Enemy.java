@@ -25,7 +25,6 @@ public class Enemy extends Character {
 
     private Direction actions;
 
-    //todo eliminar listEnemys
     public Enemy(int health, int attackDamage, int defense, double initialPosX, double initialPosY, double speed, Player player) {
         super(health, attackDamage, defense);
 

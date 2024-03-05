@@ -345,7 +345,6 @@ public class Game extends AnimationTimer {
 
     }
 
-    //TODO Arreglar nuevo retroceso cuando enemy colisiona con el jugador rebotar a Pos contraria
     private void applyKnockback(Player player, Enemy enemy) {
         // Convertir las posiciones del jugador y del enemigo en Point2D
         Point2D playerPosition = new Point2D(player.getPosX(), player.getPosY());
