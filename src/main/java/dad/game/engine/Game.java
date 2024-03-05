@@ -160,6 +160,7 @@ public class Game extends AnimationTimer {
             player.posX = 6 * Tile.getTileWidth(); // Para el número 36
             player.posY = 1 * Tile.getTileLength(); // Segunda fila
             nextMap4 = false;
+            spawnEnemy(100.0, 100.0);
             System.out.println("Changed to Map 4");
         } else if (nextMap4_back) {
             System.out.println("Changing to Map 3...");
@@ -174,6 +175,7 @@ public class Game extends AnimationTimer {
             player.posX = 10 * Tile.getTileWidth(); // Para el número 43
             player.posY = 8 * Tile.getTileLength(); // Primera fila
             nextMap5 = false;
+            spawnEnemy(100.0, 100.0);
             System.out.println("Changed to Map 5");
         } else if (nextMap5_back) {
             System.out.println("Changing to Map 2...");
@@ -188,6 +190,7 @@ public class Game extends AnimationTimer {
             player.posX = 10 * Tile.getTileWidth(); // Quinta columna desde la izquierda
             player.posY = 7 * Tile.getTileLength(); // Octava fila (segunda por debajo)
             nextMap6 = false;
+            spawnEnemy(100.0, 100.0);
             System.out.println("Changed to Map 6");
         } else if (nextMap6_back) {
             System.out.println("Changing to Map 5...");
@@ -202,6 +205,7 @@ public class Game extends AnimationTimer {
             player.posX = 5 * Tile.getTileWidth(); // Quinta columna desde la izquierda
             player.posY = 8 * Tile.getTileLength(); // Primera fila
             nextMap7 = false;
+            spawnEnemy(100.0, 100.0);
             System.out.println("Changed to Map 7");
         } else if (nextMap7_back) {
             System.out.println("Changing to Map 6...");
@@ -211,11 +215,13 @@ public class Game extends AnimationTimer {
             nextMap7_back = false;
             System.out.println("Changed to Map 6");
         } else if (nextMap8) {
+
             System.out.println("Changing to Map 8...");
             this.entities = Tile.loadTile(Tile.tileMap8);
             player.posX = 5 * Tile.getTileWidth(); // Quinta columna desde la izquierda
             player.posY = 8 * Tile.getTileLength(); // Primera fila
             nextMap8 = false;
+            spawnEnemy(100.0, 100.0);
             System.out.println("Changed to Map 8");
         } else if (nextMap8_back) {
             System.out.println("Changing to Map 7...");
