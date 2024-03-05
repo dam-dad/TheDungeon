@@ -12,6 +12,8 @@ Al hacer click en este botón, empezará tu aventura en The Dungeon
 
 Si pulsas `SPACE` atacarás con tu espada.
 
+te mueves con `W` `A` `S` `D`
+
 Cada vez que atraviesas un mapa podrás encontrarte con enemigos nuevos, **decidirás matarlos? o escapar.**
 
 
